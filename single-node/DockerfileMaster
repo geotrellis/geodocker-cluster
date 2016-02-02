@@ -48,7 +48,7 @@ ADD cfg/hadoop/masters $ACCUMULO_HOME/conf/masters
 ADD cfg/hadoop/slaves $ACCUMULO_HOME/conf/slaves
 
 RUN rm -f $SPARK_HOME/conf/*
-ADD spark/* $SPARK_HOME/conf/
+ADD cfg/spark/* $SPARK_HOME/conf/
 ADD cfg/hadoop/masters $SPARK_HOME/conf/masters
 ADD cfg/hadoop/slaves $SPARK_HOME/conf/slaves
 

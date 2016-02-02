@@ -50,7 +50,7 @@ fi
 docker build -t daunnc/geo-master-thn:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
 docker build -t daunnc/geo-slave-thn:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileSlave .
 
-if [ ${PUBLISH} ] then;
+if [ ${PUBLISH} ]; then
   docker push daunnc/geo-master-thn:${TAG}  
   docker push daunnc/geo-slave-thn:${TAG}  
 fi

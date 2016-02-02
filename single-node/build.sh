@@ -45,6 +45,6 @@ fi
 
 docker build -t daunnc/geo-master-sn:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
 
-if [ ${PUBLISH} ] then;
+if [ ${PUBLISH} ]; then
   docker push daunnc/geo-master-sn:${TAG}  
 fi

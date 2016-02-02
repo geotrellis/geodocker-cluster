@@ -15,7 +15,7 @@ RUN apt-get update && apt-get upgrade -y && \
     python-numpy python-pip python-dev python-scipy libgdal-dev libgdal1-dev libgdal-java geotiff-bin 
 
 # Add oracle java repository
-RUN apt-get -y install software-properties-common \
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get -y update
 

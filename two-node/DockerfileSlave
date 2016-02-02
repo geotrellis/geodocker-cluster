@@ -4,6 +4,8 @@ MAINTAINER Grigory Pomadchin, daunnc@owm.io
 
 RUN apt-get install -y iputils-ping daemontools
 
+ARG ACCUMULO_VERSION
+ENV ACCUMULO_VERSION ${ACCUMULO_VERSION:-1.7.0}
 ENV HADOOP_INSTALL /usr/local/hadoop
 ENV ZOOKEEPER_HOME /usr/local/zookeeper
 ENV ACCUMULO_HOME /usr/local/accumulo
@@ -33,7 +35,7 @@ RUN chown hduser:hadoop /home/hduser/.ssh/config
 ADD cfg/zookeeper/zoo.cfg $ZOOKEEPER_HOME/conf/zoo.cfg
 ADD cfg/zookeeper/zookeeper-env.sh $ZOOKEEPER_HOME/zookeeper/conf/zookeeper-env.sh
 
-ADD cfg/accumulo/* $ACCUMULO_HOME/conf/
+ADD cfg/accumulo/${ACCUMULO_VERSION}/* $ACCUMULO_HOME/conf/
 ADD cfg/hadoop/masters $ACCUMULO_HOME/conf/masters
 
 RUN rm -f $SPARK_HOME/conf/*

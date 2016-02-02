@@ -16,4 +16,4 @@ sudo -u hduser bash -c "$ACCUMULO_HOME/bin/accumulo init --instance-name gis --p
 sudo -u hduser bash -c "$ACCUMULO_HOME/bin/start-all.sh"
 sudo -u hduser bash -c "$SPARK_HOME/sbin/start-all.sh"
 # tail -f $HADOOP_INSTALL/logs/*
-# while true; do sleep 1; done
+while true; do sleep 1; done

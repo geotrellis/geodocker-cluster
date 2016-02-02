@@ -15,5 +15,5 @@ sleep 4
 su hduser -c "$ACCUMULO_HOME/bin/accumulo init --instance-name gis --password secret"
 su hduser -c "$ACCUMULO_HOME/bin/start-all.sh"
 su hduser -c "$SPARK_HOME/sbin/start-all.sh"
-#tail -f $HADOOP_INSTALL/logs/*
+# tail -f $HADOOP_INSTALL/logs/*
 while true; do sleep 1; done

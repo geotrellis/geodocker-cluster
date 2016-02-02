@@ -1,4 +1,20 @@
 #!/bin/bash
+
+for i in "$@"
+do
+case $i in    
+    -t=*|--tag=*)
+    TAG="${i#*=}"
+    shift # past argument=value
+    ;;
+    *)
+          # unknown option
+    ;;
+esac
+done
+
+TAG=${TAG:-latest}
+
 docker run -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
            -e ZOOKEEPER_ID=1 \
@@ -17,5 +33,5 @@ docker run -d -t --dns 127.0.0.1 \
            -p 12234:12234 -p 8080:8080 \
            -p 8081:8081 -p 7077:7077 \
            -p 4040:4040 -p 4041:4041 \
-           -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-sn:latest
+           -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-sn:${TAG}
            

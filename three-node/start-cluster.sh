@@ -1,14 +1,29 @@
 #!/bin/bash
+
+for i in "$@"
+do
+case $i in    
+    -t=*|--tag=*)
+    TAG="${i#*=}"
+    shift
+    ;;
+    *)
+    ;;
+esac
+done
+
+TAG=${TAG:-latest}
+
 docker run -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=s \
-           -e ZOOKEEPER_ID=2 --name slave1 -h slave1.gt daunnc/geo-slave-thn:latest
+           -e ZOOKEEPER_ID=2 --name slave1 -h slave1.gt daunnc/geo-slave-thn:${TAG}
 
 FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" slave1)
 
 docker run -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=s \
            -e ZOOKEEPER_ID=3 \
-           -e JOIN_IP=$FIRST_IP --name slave2 -h slave2.gt daunnc/geo-slave-thn:latest
+           -e JOIN_IP=$FIRST_IP --name slave2 -h slave2.gt daunnc/geo-slave-thn:${TAG}
 
 docker run -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
@@ -29,4 +44,4 @@ docker run -d -t --dns 127.0.0.1 \
            -p 12234:12234 -p 8080:8080 \
            -p 8081:8081 -p 7077:7077 \
            -p 4040:4040 -p 4041:4041 \
-           -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-thn:latest
+           -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-thn:${TAG}

@@ -1,3 +1,4 @@
+export JAVA_GDAL_DIR=/usr/lib/jni/
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle  
 export HADOOP_INSTALL=/usr/local/hadoop 
 export HADOOP_HOME=$HADOOP_INSTALL

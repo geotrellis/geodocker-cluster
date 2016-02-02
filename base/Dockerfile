@@ -6,14 +6,16 @@ ENV HADOOP_VERSION 2.7.1
 ENV SPARK_VERSION 1.5.2
 ENV ACCUMULO_VERSION 1.7.0
 ENV ZOOKEEPER_VERSION 3.4.6
+ENV JAVA_GDAL_DIR /usr/lib/jni/
 
 # Update Ubuntu
-RUN apt-get update && apt-get upgrade -y
-
-RUN apt-get install -y maven llvm-gcc build-essential zlib1g-dev make cmake pkg-config libssl-dev automake autoconf curl zip unzip
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y maven llvm-gcc build-essential zlib1g-dev make cmake pkg-config libssl-dev \ 
+    automake autoconf curl zip unzip imagemagick gdal-bin python-gdal python python-setuptools \
+    python-numpy python-pip python-dev python-scipy libgdal-dev libgdal1-dev libgdal-java geotiff-bin 
 
 # Add oracle java repository
-RUN apt-get -y install software-properties-common
+RUN apt-get -y install software-properties-common \
 RUN add-apt-repository ppa:webupd8team/java
 RUN apt-get -y update
 

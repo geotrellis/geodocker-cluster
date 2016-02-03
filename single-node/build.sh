@@ -38,6 +38,10 @@ rm -f DockerfileMaster && git checkout DockerfileMaster
 sed "s/daunnc\/geo-base:latest/daunnc\/geo-base:${BASE_TAG}/g" DockerfileMaster > DockerfileMaster.new
 rm -f DockerfileMaster && mv DockerfileMaster.new DockerfileMaster
 
+rm -f DockerfileSlave && git checkout DockerfileSlave
+sed "s/daunnc\/geo-base:latest/daunnc\/geo-base:${BASE_TAG}/g" DockerfileSlave > DockerfileSlave.new
+rm -f DockerfileSlave && mv DockerfileSlave.new DockerfileSlave
+
 if ${BUILD_BASE}; then 
   cd ../base 
   ./build.sh --accumulo=${ACCUMULO_VERSION}
@@ -45,7 +49,9 @@ if ${BUILD_BASE}; then
 fi
 
 docker build -t daunnc/geo-master-sn:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
+docker build -t daunnc/geo-slave-sn:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
 
 if ${PUBLISH}; then
-  docker push daunnc/geo-master-sn:${TAG}  
+  docker push daunnc/geo-master-sn:${TAG}
+  docker push daunnc/geo-slave-sn:${TAG}  
 fi

@@ -22,10 +22,9 @@ done
 
 TAG=${TAG:-latest}
 
-FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" slave1)
+FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 
 docker run -d -t --dns 127.0.0.1 \
-           -e NODE_TYPE=sd \
-           -e ZOOKEEPER_ID=4 \
+           -e NODE_TYPE=sd \           
            -e JOIN_IP=$FIRST_IP \
-           -e HOSTNAME=$HOSTNAME --name $NAME -h $HOSTNAME daunnc/geo-slave-twn:${TAG}
+           -e HOSTNAME=$HOSTNAME --name $NAME -h $HOSTNAME daunnc/geo-slave-sn:${TAG}

@@ -46,7 +46,7 @@ while [  $COUNTER -lt $NODES ]; do
   docker run -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=$FIRST_IP \
-             -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-thn:${TAG}
+             -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-sn:${TAG}
 
   let COUNTER=COUNTER+1 
 done

@@ -42,7 +42,12 @@ docker run -d -t --dns 127.0.0.1 \
 FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 
 COUNTER=1
-while [  $COUNTER -lt $NODES ]; do
+
+if [ ${COUNTER} -gt 1 ]; then
+  sleep 10
+fi
+
+while [ ${COUNTER} -lt ${NODES} ]; do
   docker run -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=$FIRST_IP \

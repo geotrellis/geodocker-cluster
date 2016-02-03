@@ -47,6 +47,11 @@ docker run -d -t --dns 127.0.0.1 \
            -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-twn:${TAG}
 
 COUNTER=2
+
+if [ ${COUNTER} -gt 2 ]; then
+  sleep 10
+fi
+
 while [  $COUNTER -lt $NODES ]; do
   let COUNTER=COUNTER+1 
   

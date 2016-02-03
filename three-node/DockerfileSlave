@@ -62,4 +62,9 @@ EXPOSE 9999 9997 50091 50095 4560 12234
 # Spark ports
 EXPOSE 8080 8081 7077 4040 4041 18080 
 
+# Volumes
+VOLUME ["/data"]
+
+WORKDIR /data
+
 ENTRYPOINT ["/bin/bash", "/usr/local/hadoop/bin/bootstrap.sh"]

@@ -62,7 +62,7 @@ ADD hadoop/hadoop-env.sh /usr/local/hadoop/etc/hadoop/hadoop-env.sh
 
 # Zookeeper
 RUN curl -s http://mirror.cc.columbia.edu/pub/software/apache/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz | tar -xz -C /usr/local
-RUN ln -s /usr/local/zookeeper-${ZOOKEEPER_VERSION} /usr/local/zookeeper
+RUN mv /usr/local/zookeeper-${ZOOKEEPER_VERSION} /usr/local/zookeeper
 RUN chown -R hduser:hadoop /usr/local/zookeeper
 RUN mkdir -p /var/zookeeper
 RUN mkdir -p /var/log/zookeeper
@@ -71,14 +71,14 @@ RUN chown -R hduser:hadoop /var/log/zookeeper
 
 # Accumulo
 RUN curl -s http://archive.apache.org/dist/accumulo/${ACCUMULO_VERSION}/accumulo-${ACCUMULO_VERSION}-bin.tar.gz | tar -xz -C /usr/local
-RUN ln -s /usr/local/accumulo-${ACCUMULO_VERSION} /usr/local/accumulo
+RUN mv /usr/local/accumulo-${ACCUMULO_VERSION} /usr/local/accumulo
 RUN rm -r /usr/local/accumulo/logs && mkdir /usr/local/accumulo/logs 
 RUN mkdir -p /usr/local/accumulo/walogs
 RUN chown -R hduser:hadoop /usr/local/accumulo/
 
 # Spark
 RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
-RUN ln -s /usr/local/spark-${SPARK_VERSION}-bin-hadoop2.6 /usr/local/spark
+RUN mv /usr/local/spark-${SPARK_VERSION}-bin-hadoop2.6 /usr/local/spark
 RUN chown -R hduser:hadoop /usr/local/spark
 RUN mkdir -p /home/hduser/spark/tmp
 RUN chown -R hduser:hadoop /home/hduser/spark/tmp

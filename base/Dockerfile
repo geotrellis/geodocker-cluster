@@ -12,7 +12,7 @@ ENV JAVA_GDAL_DIR /usr/lib/jni/
 # Update Ubuntu
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y maven llvm-gcc build-essential zlib1g-dev make cmake pkg-config libssl-dev \ 
-    automake autoconf curl zip unzip imagemagick gdal-bin python-gdal python python-setuptools \
+    automake autoconf curl zip unzip git imagemagick gdal-bin python-gdal python python-setuptools \
     python-numpy python-pip python-dev python-scipy libgdal-dev libgdal1-dev libgdal-java geotiff-bin 
 
 # Add oracle java repository

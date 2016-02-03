@@ -5,15 +5,19 @@ do
 case $i in    
     -t=*|--tag=*)
     TAG="${i#*=}"
-    shift # past argument=value
+    shift
+    ;;
+    -n=*|--nodes=*)
+    NODES="${i#*=}"
+    shift
     ;;
     *)
-          # unknown option
     ;;
 esac
 done
 
 TAG=${TAG:-latest}
+NODES=${NODES:-1}
 
 docker run -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
@@ -34,4 +38,16 @@ docker run -d -t --dns 127.0.0.1 \
            -p 8081:8081 -p 7077:7077 \
            -p 4040:4040 -p 4041:4041 \
            -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-sn:${TAG}
+
+FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
+
+COUNTER=1
+while [  $COUNTER -lt $NODES ]; do
+  docker run -d -t --dns 127.0.0.1 \
+             -e NODE_TYPE=sd \
+             -e JOIN_IP=$FIRST_IP \
+             -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-thn:${TAG}
+
+  let COUNTER=COUNTER+1 
+done
            

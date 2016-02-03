@@ -43,7 +43,7 @@ FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 
 COUNTER=1
 
-if [ ${COUNTER} -gt 1 ]; then
+if [ ${NODES} -gt ${COUNTER} ]; then
   sleep 10
 fi
 

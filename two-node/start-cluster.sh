@@ -48,7 +48,7 @@ docker run -d -t --dns 127.0.0.1 \
 
 COUNTER=2
 
-if [ ${COUNTER} -gt 2 ]; then
+if [ ${NODES} -gt ${COUNTER} ]; then
   sleep 10
 fi
 

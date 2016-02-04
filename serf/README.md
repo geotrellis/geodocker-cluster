@@ -1,6 +1,6 @@
 # Serf
 
-Serf image is a base image for all other containers, it is based on Ubuntu 14.04 image with [srerf](https://www.serfdom.io/) installed.
+Serf image is a base image for all other containers, it is based on Ubuntu 14.04 image with [serf](https://www.serfdom.io/) installed.
 
 ## Build Serf
 

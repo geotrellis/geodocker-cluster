@@ -12,7 +12,7 @@ case $i in
     shift
     ;;
     -bt=*|--base-tag=*)
-    TAG="${i#*=}"
+    BASE_TAG="${i#*=}"
     shift
     ;;
     --build-base*)

@@ -26,6 +26,12 @@
     <value>hdfs://master1.gt:9000/accumulo</value>
     <description>comma separated list of URIs for volumes. example: hdfs://localhost:9000/accumulo</description>
   </property>
+
+  <property>
+    <name>general.vfs.classpaths</name>
+    <value>hdfs://master1.gt:9000/accumulo/general-classpath</value>
+    <description>Configuration for a system level vfs classloader. Accumulo jars can be configured here and loaded out of HDFS.</description>
+  </property>
   
   <property>
     <name>instance.zookeeper.host</name>

@@ -1,6 +1,6 @@
 ACCUMULO_HOME=/usr/local/accumulo
 
-docker exec -it master1 bash -c "rm -r ./geowave && git clone https://github.com/ngageoint/geowave.git && cd ./geowave && \
+docker exec -it master1 bash -c "rm -rf ./geowave && git clone https://github.com/ngageoint/geowave.git && cd ./geowave && \
                         mvn install -Dmaven.test.skip=true && mvn install -Dmaven.test.skip=true && \
                         mvn package -P geowave-tools-singlejar -Dmaven.test.skip=true && \
                         mvn package -P geotools-container-singlejar -Dmaven.test.skip=true && \

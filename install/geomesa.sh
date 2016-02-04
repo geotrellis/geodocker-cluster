@@ -1,6 +1,6 @@
 ACCUMULO_HOME=/usr/local/accumulo
 
-docker exec -it master1 git clone https://github.com/locationtech/geomesa.git && cd geomesa && \
+docker exec -it master1 rm -r ./geomesa && git clone https://github.com/locationtech/geomesa.git && cd ./geomesa && \
                         mvn clean install -Dmaven.test.skip=true && \
                         hadoop fs -mkdir -p /accumulo/general-classpath && \
                         hadoop fs -copyFromLocal geomesa-accumulo/geomesa-accumulo-distributed-runtime/target/geomesa-accumulo-distributed-runtime-1.2.0-SNAPSHOT.jar /accumulo/general-classpath/ && \

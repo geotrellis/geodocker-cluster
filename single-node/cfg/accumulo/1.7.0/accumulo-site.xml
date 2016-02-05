@@ -33,7 +33,7 @@
     <description>comma separated list of zookeeper servers</description>
   </property>
 
- <property>
+  <property>
     <name>general.vfs.classpaths</name>
     <value>hdfs://master1.gt:9000/accumulo/system-classpath/[^.].*.jar</value>
     <description>Configuration for a system level vfs classloader. Accumulo jars can be configured here and loaded out of HDFS.</description>

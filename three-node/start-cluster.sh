@@ -11,6 +11,10 @@ case $i in
     NODES="${i#*=}"
     shift
     ;;
+    -v=*|--volume=*)
+    VOLUME="-v ${i#*=}"
+    shift
+    ;;
     *)
     ;;
 esac
@@ -19,18 +23,18 @@ done
 TAG=${TAG:-latest}
 NODES=${NODES:-3}
 
-docker run -d -t --dns 127.0.0.1 \
+docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=s \
            -e ZOOKEEPER_ID=2 --name slave1 -h slave1.gt daunnc/geo-slave-thn:${TAG}
 
 FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" slave1)
 
-docker run -d -t --dns 127.0.0.1 \
+docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=s \
            -e ZOOKEEPER_ID=3 \
            -e JOIN_IP=$FIRST_IP --name slave2 -h slave2.gt daunnc/geo-slave-thn:${TAG}
 
-docker run -d -t --dns 127.0.0.1 \
+docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
            -e ZOOKEEPER_ID=1 \
            -e JOIN_IP=$FIRST_IP \
@@ -58,7 +62,7 @@ if [ ${NODES} -gt ${COUNTER} ]; then
 fi
 
 while [  $COUNTER -lt $NODES ]; do
-  docker run -d -t --dns 127.0.0.1 \
+  docker run ${VOLUME} -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=$FIRST_IP \
              -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-thn:${TAG}

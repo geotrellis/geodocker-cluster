@@ -11,6 +11,10 @@ case $i in
     NODES="${i#*=}"
     shift
     ;;
+    -v=*|--volume=*)
+    VOLUME="-v ${i#*=}"
+    shift
+    ;;
     *)
     ;;
 esac
@@ -19,7 +23,7 @@ done
 TAG=${TAG:-latest}
 NODES=${NODES:-1}
 
-docker run -d -t --dns 127.0.0.1 \
+docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
            -e ZOOKEEPER_ID=1 \
            -p 9000:9000 -p 50010:50010 \
@@ -48,7 +52,7 @@ if [ ${NODES} -gt ${COUNTER} ]; then
 fi
 
 while [ ${COUNTER} -lt ${NODES} ]; do
-  docker run -d -t --dns 127.0.0.1 \
+  docker run ${VOLUME} -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=$FIRST_IP \
              -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-sn:${TAG}

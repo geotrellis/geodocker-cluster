@@ -1,0 +1,1 @@
+docker exec -it master1 bash -c ". ~/.bashrc; cd geowave; java -cp extensions/formats/geotools-vector/target/geowave-format-vector-0.9.1-SNAPSHOT-tools.jar mil.nga.giat.geowave.core.cli.GeoWaveMain -localingest -b ./ingest -i gis -n geowave.50m_admin_0_countries -f geotools-vector -u root -p secret -z master1.owm:2181"

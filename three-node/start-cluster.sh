@@ -12,7 +12,7 @@ case $i in
     shift
     ;;
     -v=*|--volume=*)
-    VOLUME="-v ${i#*=}/data"
+    VOLUME="-v ${i#*=}:/data"
     shift
     ;;
     *)

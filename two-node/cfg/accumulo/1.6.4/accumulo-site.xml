@@ -34,8 +34,19 @@
 
   <property>
     <name>general.vfs.classpaths</name>
-    <value>hdfs://master1.gt:9000/accumulo/general-classpath</value>
+    <value>hdfs://master1.gt:9000/accumulo/system-classpath</value>
     <description>Configuration for a system level vfs classloader. Accumulo jars can be configured here and loaded out of HDFS.</description>
+  </property>
+
+  <property>
+    <name>general.vfs.cache.dir</name>
+    <value>/tmp</value>
+    <description>Directory to use for the vfs cache. The cache will keep a soft reference to all of the classes loaded in the VM.
+      This should be on local disk on
+      each node with sufficient space. It defaults to /tmp and will use a directory with the
+      format "accumulo-vfs-cache-" + System.getProperty("user.name",
+      "nouser")
+    </description>
   </property>
   
   <property>

@@ -34,7 +34,7 @@
 
   <property>
     <name>general.vfs.classpaths</name>
-    <value>hdfs://master1.gt:9000/accumulo/system-classpath</value>
+    <value>hdfs://master1.gt:9000/accumulo/system-classpath/*.jar</value>
     <description>Configuration for a system level vfs classloader. Accumulo jars can be configured here and loaded out of HDFS.</description>
   </property>
 
@@ -47,6 +47,15 @@
       format "accumulo-vfs-cache-" + System.getProperty("user.name",
       "nouser")
     </description>
+  </property>
+
+  <property>
+    <name>general.dynamic.classpaths</name>    
+    <value>
+      $ACCUMULO_HOME/lib/ext/*.jar,
+      hdfs://master1.gt:9000/accumulo/system-classpath/*.jar
+    </value>
+    <description>Classpaths that accumulo checks for updates and class files.</description>    
   </property>
   
   <property>

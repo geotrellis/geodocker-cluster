@@ -41,7 +41,7 @@ docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -p 12234:12234 -p 8080:8080 \
            -p 8081:8081 -p 7077:7077 \
            -p 4040:4040 -p 4041:4041 \
-           -p 1808:1808 --name master1 -h master1.gt daunnc/geo-master-sn:${TAG}
+           -p 1808:1808 -p 8777:8777 --name master1 -h master1.gt daunnc/geo-master-sn:${TAG}
 
 FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 

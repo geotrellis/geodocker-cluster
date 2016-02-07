@@ -4,8 +4,8 @@ Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) install and run 
 
 ## Scripts description
 
-* `install.sh` -- installs [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
-* `update.sh` -- updates [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
+* `install.sh` — installs [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
+* `update.sh` — updates [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
 
 ## Run tests
 

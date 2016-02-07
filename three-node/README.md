@@ -21,8 +21,9 @@ You can start cluster using `./start-cluster.sh` script:
 
 ```bash
   Options:
-    -n=<n> | --nodes=<n>    Nodes amount [n >= 3].
-    -t=<tag> | --tag=<tag>  Image tag to start [default: latest].    
+    -n=<n> | --nodes=<n>             Nodes amount [n >= 3].
+    -t=<tag> | --tag=<tag>           Image tag to start [default: latest].  
+    -v=<volume> | --volume=<volume>  Mounts absolute `volume path` to a `/data` container folder.  
 ```
 
 ## Add slave

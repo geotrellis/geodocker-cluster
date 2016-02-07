@@ -1,6 +1,6 @@
 # Docker Geo environment.
 
-Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/geotrellis/geotrellis), and [GeoWave](https://github.com/ngageoint/geowave/) jobs. These images will create a set of containers, running in a distributed fashion, *on a single machine*. In practice, this requires being careful to ensure that enough memory is available for all images.
+Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave) jobs. These images will create a set of containers, running in a distributed fashion, *on a single machine*. In practice, this requires being careful to ensure that enough memory is available for all images.
 
 ## Environment
 
@@ -42,10 +42,10 @@ Note: It is possible to have a multinode (n-node) cluster with any number of Zoo
     * [geo-master-thn](https://hub.docker.com/r/daunnc/geo-master-thn/)
     * [geo-slave-thn](https://hub.docker.com/r/daunnc/geo-slave-thn/)
 
-[GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/geotrellis/geotrellis), and [GeoWave](https://github.com/ngageoint/geowave/): 
+[GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave/): 
 
 * [install directory](./install)
-  * Contains scripts to install [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/geotrellis/geotrellis) and [GeoWave](https://github.com/ngageoint/geowave/) into cluster and to run test examples, to be sure that cluster and library operating correct.
+  * Contains scripts to install [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa) and [GeoWave](https://github.com/ngageoint/geowave) into cluster and to run test examples, to be sure that cluster and library operating correct.
 
 ## Build a multinode cluster
 

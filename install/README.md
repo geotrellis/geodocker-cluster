@@ -1,5 +1,9 @@
 # Install
 
-Provides [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/geotrellis/geotrellis), and [GeoWave](https://github.com/ngageoint/geowave/) install and run test applications.
+Provides [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave) install and run test applications.
 
-To run geotrellis test examples and complete description see [README.md](./geotrellis)
+## Index of ReadMe docs
+
+* [GeoTrellis](./geotrellis) - [GeoTrellis](https://github.com/geotrellis/geotrellis) install and test example description.
+* [GeoMesa](./geomesa) - [GeoMesa](https://github.com/locationtech/geomesa) install and test example description.
+* [GeoWave](./geowave) - [GeoWave](https://github.com/ngageoint/geowave) install and test example description.

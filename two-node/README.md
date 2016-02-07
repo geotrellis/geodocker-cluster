@@ -15,7 +15,7 @@ You can build and publish two-node images (master and slave) using `build.sh` sc
     --publish                                        Push container to dockerhub.
 ```
 
-# Start cluster
+## Start cluster
 
 You can start cluster using `./start-cluster.sh` script:
 
@@ -23,4 +23,15 @@ You can start cluster using `./start-cluster.sh` script:
   Options:
     -n=<n> | --nodes=<n>    Nodes amount [n >= 2].
     -t=<tag> | --tag=<tag>  Image tag to start [default: latest].    
+```
+
+## Add slave
+
+You can add slave node to already launched master:
+
+```bash
+  Options:
+    -t=<tag> | --tag=<tag>             Image tag to start [default: latest].    
+    -n=<name> | --name=<n>             Slave image name.
+    -h=<hostname> | --host=<hostname>  Slave hostname, should end with `.gt` (*slave50.gt*).    
 ```

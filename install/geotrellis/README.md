@@ -28,7 +28,10 @@ Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) install and run 
 
 4. Run server: 
     ```bash
-    ./sbt run # press 2 when dialog appears
+    zip -d target/scala-2.10/GeoTrellis-Tutorial-Project-assembly-0.1-SNAPSHOT.jar META-INF/ECLIPSEF.RSA
+    zip -d target/scala-2.10/GeoTrellis-Tutorial-Project-assembly-0.1-SNAPSHOT.jar META-INF/ECLIPSEF.SF
+    
+    java -cp target/scala-2.10/GeoTrellis-Tutorial-Project-assembly-0.1-SNAPSHOT.jar geotrellis.chatta.Main
     ```
 
 Server would be available at `localhost:8777`.

@@ -53,7 +53,7 @@ docker run ${VOLUME} -d -t --dns 127.0.0.1 \
 COUNTER=2
 
 if [ ${NODES} -gt ${COUNTER} ]; then
-  sleep 10
+  sleep 20
 fi
 
 while [  $COUNTER -lt $NODES ]; do

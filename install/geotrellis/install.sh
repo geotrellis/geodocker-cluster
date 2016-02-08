@@ -5,3 +5,4 @@ docker exec -it master1 bash -c ". ~/.bashrc && \
                                   cd ./geotrellis-chatta-demo/geotrellis && git checkout spark-version && ./sbt assembly"
 
 docker cp resources master1:/data/geotrellis-chatta-demo/geotrellis/src/main/
+docker cp install.sh master1:/data/geotrellis-chatta-demo/geotrellis/

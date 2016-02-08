@@ -1,6 +1,10 @@
+export HADOOP_VERSION=2.6.0
+export GEOTOOLS_VERSION=14.2
+export GEOSERVER_VERSION=2.8.2
+
 docker exec -it master1 bash -c ". ~/.bashrc && rm -rf ./geowave && git clone https://github.com/ngageoint/geowave.git && \
                                  cd ./geowave && \
-                                 mvn install -Dmaven.test.skip=true && mvn install -Dmaven.test.skip=true && \
+                                 mvn install -Dmaven.test.skip=true -Dhadoop.version=${HADOOP_VERSION} -Dgeotools.version=${GEOTOOLS_VERSION} -Dgeoserver.version=${GEOSERVER_VERSION} && \
                                  mvn package -P geowave-tools-singlejar -Dmaven.test.skip=true && \
                                  mvn package -P geotools-container-singlejar -Dmaven.test.skip=true && \
                                  mvn package -P accumulo-container-singlejar -Dmaven.test.skip=true && \

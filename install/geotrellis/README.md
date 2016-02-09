@@ -1,6 +1,6 @@
 # GeoTrellis
 
-Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) install and run test applications scripts.
+Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) installations and run test applications.
 
 ## Scripts description
 

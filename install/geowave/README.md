@@ -1,6 +1,6 @@
 # GeoWave
 
-Provides [GeoWave](https://github.com/ngageoint/geowave) install and run test applications scripts.
+Provides [GeoWave](https://github.com/ngageoint/geowave) installations and run test applications.
 
 ## Scripts description
 

@@ -3,3 +3,4 @@ docker exec -it master1 bash -c ". ~/.bashrc && \
                                   ./publish-local.sh && cd ../geotrellis-chatta-demo && \
                                   git pull && cd ./geotrellis-chatta-demo/geotrellis && \
                                   ./sbt assembly"
+                                  

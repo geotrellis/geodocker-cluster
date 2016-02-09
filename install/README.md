@@ -1,6 +1,6 @@
-# Install
+# Geospatial, 'Big Data' Environments
 
-Provides [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave) install and run test applications.
+This project is a collection of docker containers which provide [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave) installations and run test applications.
 
 ## Index of ReadMe docs
 

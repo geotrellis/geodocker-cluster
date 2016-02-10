@@ -14,4 +14,4 @@ done
 
 NODES=${NODES:-1}
 
-docker exec -it master1 bash -c ". ~/.bashrc; hdfs -setrep -w ${NODES} /accumulo/system-classpath/*"
+docker exec -it master1 bash -c ". ~/.bashrc; hdfs dfs -setrep -w ${NODES} /accumulo/system-classpath/*"

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export HADOOP_VERSION=2.6.0
 export GEOTOOLS_VERSION=14.2
 export GEOSERVER_VERSION=2.8.2

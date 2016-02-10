@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker exec -it master1 bash -c ". ~/.bashrc && \
                                   rm -rf geotrellis && git clone https://github.com/geotrellis/geotrellis.git && \
                                   cd ./geotrellis && ./publish-local.sh && cd ../ && \

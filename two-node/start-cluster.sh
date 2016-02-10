@@ -32,7 +32,7 @@ FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" slave1)
 docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -e NODE_TYPE=m \
            -e ZOOKEEPER_ID=1 \
-           -e JOIN_IP=$FIRST_IP \
+           -e JOIN_IP=${FIRST_IP} \
            -p 9000:9000 -p 50010:50010 \
            -p 50020:50020 -p 50070:50070 \
            -p 50075:50075 -p 50090:50090 \
@@ -56,7 +56,7 @@ if [ ${NODES} -gt ${COUNTER} ]; then
   sleep 20
 fi
 
-while [  $COUNTER -lt $NODES ]; do
+while [  ${COUNTER} -lt ${NODES} ]; do
   docker run ${VOLUME} -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=$FIRST_IP \

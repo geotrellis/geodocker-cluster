@@ -34,5 +34,6 @@ You can add slave node to already launched master:
   Options:
     -t=<tag> | --tag=<tag>             Image tag to start [default: latest].    
     -n=<name> | --name=<n>             Slave image name.
-    -h=<hostname> | --host=<hostname>  Slave hostname, should end with `.gt` (*slave50.gt*).    
+    -h=<hostname> | --host=<hostname>  Slave hostname, should end with `.gt` (*slave50.gt*).  
+    -v=<volume> | --volume=<volume>    Mounts absolute `volume path` to a `/data` container folder.  
 ```

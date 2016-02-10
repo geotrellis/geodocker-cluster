@@ -12,7 +12,11 @@ case $i in
     shift
     ;;
     -h=*|--host=*)
-    HOSTNAME="${i#*=}"
+    HOST_NAME="${i#*=}"
+    shift
+    ;;
+    -v=*|--volume=*)
+    VOLUME="-v ${i#*=}:/data"
     shift
     ;;
     *)
@@ -22,10 +26,9 @@ done
 
 TAG=${TAG:-latest}
 
-FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" slave1)
+FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 
-docker run -d -t --dns 127.0.0.1 \
-           -e NODE_TYPE=sd \
-           -e ZOOKEEPER_ID=4 \
-           -e JOIN_IP=$FIRST_IP \
-           -e HOSTNAME=$HOSTNAME --name $NAME -h $HOSTNAME daunnc/geo-slave-twn:${TAG}
+docker run ${VOLUME} -d -t --dns 127.0.0.1 \
+             -e NODE_TYPE=sd \
+             -e JOIN_IP=$FIRST_IP \
+             -e HOSTNAME=${HOST_NAME} --name ${NAME} -h ${HOST_NAME} daunnc/geo-slave-sn:${TAG}

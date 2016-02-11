@@ -69,7 +69,8 @@ A more detailed description how to run and to build containers can be found in e
 A possible use case, is to have possibility to access cluster outside the container. The probable issue can happen, trying to run some `Accumulo` related jobs, for them we have to provide a `ZooKeeper` node(s) address.
 
 ```bash
-WARN impl.ServerClient: Failed to find an available server in the list of servers: [master1.gt:9997 (120000), slave1.gt:9997 (120000)]
+WARN impl.ServerClient: Failed to find an available server 
+in the list of servers: [master1.gt:9997 (120000), slave1.gt:9997 (120000)]
 ```
 
 The cause of the problem, that inside docker cluster used own dns, so the client machine, where this error happened, has no dns records for `master1.gt`. The solution is to provide it manually, for example just to add it in `/etc/hosts` file.

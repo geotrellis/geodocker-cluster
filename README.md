@@ -66,7 +66,7 @@ A more detailed description how to run and to build containers can be found in e
 
 ## Probable issues and solutions
 
-A possible use case, is to have possibility to access cluster outside the docker cluster. The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node(s) address.
+A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node(s) address.
 
 ```bash
 WARN impl.ServerClient: Failed to find an available server 

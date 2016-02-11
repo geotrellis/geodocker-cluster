@@ -64,7 +64,7 @@ A more detailed description how to run and to build containers can be found in e
 
  * `cd n-node; ./start-cluster.sh --nodes=nn # nn >= n`
 
- ## Probable issues and solutions
+## Probable issues and solutions
 
 A possible use case, is to have possibility to access cluster outside the container. The probable issue can happen, trying to run some `Accumulo` related jobs, for them we have to provide a `ZooKeeper` node(s) address.
 

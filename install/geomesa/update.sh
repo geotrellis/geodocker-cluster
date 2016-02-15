@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker exec -it master1 bash -c ". ~/.bashrc && rm -rf ./geomesa && \
+docker exec -it master1 bash -c ". ~/.bashrc && \
                                  cd ./geomesa && git pull \
                                  mvn clean install -Dmaven.test.skip=true && \
                                  hadoop fs -mkdir -p /accumulo/system-classpath && \

@@ -20,7 +20,7 @@ ADD dnsmasq.conf /etc/dnsmasq.conf
 ADD resolv.dnsmasq.conf /etc/resolv.dnsmasq.conf
 
 # install serfdom.io
-RUN curl -Lso /tmp/serf.zip https://dl.bintray.com/mitchellh/serf/0.5.0_linux_amd64.zip
+RUN curl -Lso /tmp/serf.zip https://dl.bintray.com/daunnc/serf/0.5.0_linux_amd64.zip
 RUN unzip /tmp/serf.zip -d /bin
 
 ENV SERF_CONFIG_DIR /etc/serf

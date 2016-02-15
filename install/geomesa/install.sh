@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker exec -it master1 bash -c ". ~/.bashrc && rm -rf ./geomesa && \
                                  git clone https://github.com/locationtech/geomesa.git && cd ./geomesa && \
                                  mvn clean install -Dmaven.test.skip=true && \

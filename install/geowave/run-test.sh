@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker exec -it master1 bash -c ". ~/.bashrc; cd geowave && mkdir -p ingest && \
                                  wget http://naciscdn.org/naturalearth/50m/cultural/ne_50m_admin_0_countries.zip && \
                                  mv ne_50m_admin_0_countries.zip ingest/ && cd ingest && \

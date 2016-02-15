@@ -1,4 +1,4 @@
-# Docker Geo environment.
+# GeoDocker Cluster
 
 Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave) jobs. These images will create a set of containers, running in a distributed fashion, *on a single machine*. In practice, this requires being careful to ensure that enough memory is available for all images.
 
@@ -63,7 +63,18 @@ A more detailed description how to run and to build containers can be found in e
 **Sart the n-container cluster.**
 
  * `cd n-node; ./start-cluster.sh --nodes=nn # nn >= n`
-     
+
+## Probable issues and solutions
+
+A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node(s) address.
+
+```bash
+WARN impl.ServerClient: Failed to find an available server 
+in the list of servers: [master1.gt:9997 (120000), slave1.gt:9997 (120000)]
+```
+
+The cause of the problem, that inside docker cluster used own dns, so the client machine where this error happened has no dns records for `master1.gt` hostname. The solution is to provide it manually (as a variant just to add it into the `/etc/hosts` file).
+
 ## License
 
 * Based on a repository: https://github.com/alvinhenrick/hadoop-mutinode

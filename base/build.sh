@@ -24,8 +24,8 @@ ACCUMULO_VERSION=${ACCUMULO_VERSION:-1.7.0}
 TAG=${TAG:-latest}
 PUBLISH=${PUBLISH:-false}
 
-docker build -t daunnc/geo-base:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} . 
+docker build -t daunnc/geodocker-base:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} . 
 
 if ${PUBLISH}; then
-  docker push daunnc/geo-base:${TAG}
+  docker push daunnc/geodocker-base:${TAG}
 fi

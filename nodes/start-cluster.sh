@@ -41,7 +41,7 @@ docker run ${VOLUME} -d -t --dns 127.0.0.1 \
            -p 12234:12234 -p 8080:8080 \
            -p 8081:8081 -p 7077:7077 \
            -p 4040:4040 -p 4041:4041 \
-           -p 1808:1808 -p 8777:8777 --name master1 -h master1.gt daunnc/geo-master-sn:${TAG}
+           -p 1808:1808 -p 8777:8777 --name master1 -h master1.gt daunnc/geodocker-master:${TAG}
 
 FIRST_IP=$(docker inspect --format="{{.NetworkSettings.IPAddress}}" master1)
 
@@ -55,7 +55,7 @@ while [ ${COUNTER} -lt ${NODES} ]; do
   docker run ${VOLUME} -d -t --dns 127.0.0.1 \
              -e NODE_TYPE=sd \
              -e JOIN_IP=${FIRST_IP} \
-             -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geo-slave-sn:${TAG}
+             -e HOSTNAME="slave${COUNTER}.gt" --name "slave${COUNTER}" -h "slave${COUNTER}.gt" daunnc/geodocker-slave:${TAG}
 
   let COUNTER=COUNTER+1 
 done

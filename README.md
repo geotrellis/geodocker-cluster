@@ -26,21 +26,11 @@ Base images:
 Concrete images:
 Note: It is possible to have a multinode (n-node) cluster with any number of Zookeeper instances.
 
-* [single-node image](./single-node)
-  * Contains a ZooKeeper node, working in a singlenode mode. 
+* [nodes](./nodes)
+  * Contains a cluster with a ZooKeeper node, working in a singlenode mode. 
   * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-sn](https://hub.docker.com/r/daunnc/geo-master-sn/)
-    * [geo-slave-sn](https://hub.docker.com/r/daunnc/geo-slave-sn/)
-
-* [two-node image](./two-node)
-  * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-twn](https://hub.docker.com/r/daunnc/geo-master-twn/)
-    * [geo-slave-twn](https://hub.docker.com/r/daunnc/geo-slave-twn/)
-
-* [three-node image](./three-node)
-  * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-thn](https://hub.docker.com/r/daunnc/geo-master-thn/)
-    * [geo-slave-thn](https://hub.docker.com/r/daunnc/geo-slave-thn/)
+    * [geo-master-sn](https://hub.docker.com/r/daunnc/geodocker-master/)
+    * [geo-slave-sn](https://hub.docker.com/r/daunnc/geodocker-slave/)
 
 [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave/): 
 
@@ -62,11 +52,11 @@ A more detailed description how to run and to build containers can be found in e
 
 **Sart the n-container cluster.**
 
- * `cd n-node; ./start-cluster.sh --nodes=nn # nn >= n`
+ * `cd nodes; ./start-cluster.sh --nodes=n`
 
 ## Probable issues and solutions
 
-A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node(s) address.
+A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node address.
 
 ```bash
 WARN impl.ServerClient: Failed to find an available server 

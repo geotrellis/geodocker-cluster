@@ -1,4 +1,0 @@
-#!/bin/bash
-
-echo "Starting sshd"
-exec /usr/sbin/sshd -D

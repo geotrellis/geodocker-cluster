@@ -1,6 +1,6 @@
-# Single Node.
+# Nodes.
 
-Provides accumulo configuration files to maintain only one ZooKeeper node.
+Provides accumulo configuration files to maintain Accumulo with one ZooKeeper node.
 
 ## Build Serf
 

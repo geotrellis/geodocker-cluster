@@ -8,7 +8,7 @@ You can build and publish single-node images (master and slave) using `build.sh`
 
 ```bash
   Options:
-    -a=<1.6.4 | 1.7.0> | --accumulo=<1.6.4 | 1.7.0>  Accumulo version [default: 1.7.0]
+    -a=<1.6.x | 1.7.x> | --accumulo=<1.6.x | 1.7.x>  Accumulo version [default: 1.7.0]
     -t=<tag> | --tag=<tag>                           Image tag [default: latest].
     -bt=<tag> | --base-tag=<tag>                     Base image tag [default: latest].
     --build-base                                     Build base image if it is not build.

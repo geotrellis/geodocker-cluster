@@ -2,7 +2,10 @@ FROM daunnc/serf:latest
 
 MAINTAINER Pomadchin Grigory, daunnc@gmail.com
 
+ARG SCALA_VERSION
 ARG ACCUMULO_VERSION
+
+ENV SCALA_VERSION ${SCALA_VERSION:-2.10}
 ENV HADOOP_VERSION 2.7.1
 ENV SPARK_VERSION 1.5.2
 ENV ACCUMULO_VERSION ${ACCUMULO_VERSION:-1.7.0}
@@ -77,7 +80,7 @@ RUN mkdir -p /usr/local/accumulo/walogs
 RUN chown -R hduser:hadoop /usr/local/accumulo/
 
 # Spark
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-${SPARK_VERSION}-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
+RUN curl -s https://bitbucket.org/pomadchin/binary/raw/f291a30f390a187998297dade24abf839a93f5a5/spark/spark-${SPARK_VERSION}-bin-hadoop-2.6_scala-${SCALA_VERSION}.tgz | tar -xz -C /usr/local/
 RUN mv /usr/local/spark-${SPARK_VERSION}-bin-hadoop2.6 /usr/local/spark
 RUN chown -R hduser:hadoop /usr/local/spark
 RUN mkdir -p /home/hduser/spark/tmp

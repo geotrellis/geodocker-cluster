@@ -3,6 +3,10 @@
 for i in "$@"
 do
 case $i in
+    -s=*|--scala=*)
+    SCALA_VERSION="${i#*=}"
+    shift
+    ;;
     -a=*|--accumulo=*)
     ACCUMULO_VERSION="${i#*=}"
     shift
@@ -28,6 +32,7 @@ case $i in
 esac
 done
 
+SCALA_VERSION=${SCALA_VERSION:-2.10}
 ACCUMULO_VERSION=${ACCUMULO_VERSION:-1.7.0}
 TAG=${TAG:-latest}
 BASE_TAG=${BASE_TAG:-latest}
@@ -48,8 +53,8 @@ if ${BUILD_BASE}; then
   cd ~-
 fi
 
-docker build -t daunnc/geodocker-master:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
-docker build -t daunnc/geodocker-slave:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileSlave .
+docker build -t daunnc/geodocker-master:${TAG} --build-arg SCALA_VERSION=${SCALA_VERSION} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
+docker build -t daunnc/geodocker-slave:${TAG} --build-arg SCALA_VERSION=${SCALA_VERSION} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileSlave .
 
 if ${PUBLISH}; then
   docker push daunnc/geodocker-master:${TAG}

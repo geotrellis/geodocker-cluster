@@ -52,10 +52,10 @@ A more detailed description how to run and to build containers can be found in e
 * Build base container
   * `cd base; ./build.sh`
 
-* Build n-node master and slave containers
-  * `cd n-node; ./build.sh`
+* Build master and slave containers
+  * `cd nodes; ./build.sh`
 
-**Sart the n-container cluster.**
+**Sart the n-node cluster.**
 
  * `cd nodes; ./start-cluster.sh --nodes=n`
 

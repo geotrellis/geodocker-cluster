@@ -6,7 +6,7 @@ Docker containers with prepared environment to run [GeoTrellis](https://github.c
 
 * [Hadoop (HDFS + YARN) 2.7.1](https://hadoop.apache.org/)
 * [ZooKeeper 3.4.6](https://zookeeper.apache.org/)
-* [Accumulo 1.6.4 / 1.7.0](https://accumulo.apache.org/) (the specific version to use is configurable)
+* [Accumulo 1.6.5 / 1.7.0](https://accumulo.apache.org/) (the specific version to use is configurable)
 * [Spark 1.5.2](http://spark.apache.org/)
 
 ## Repository short description (index of ReadMe docs)
@@ -29,8 +29,13 @@ Note: It is possible to have a multinode (n-node) cluster with any number of Zoo
 * [nodes](./nodes)
   * Contains a cluster with a ZooKeeper node, working in a singlenode mode. 
   * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-sn](https://hub.docker.com/r/daunnc/geodocker-master/)
-    * [geo-slave-sn](https://hub.docker.com/r/daunnc/geodocker-slave/)
+    * [geodocker-master](https://hub.docker.com/r/daunnc/geodocker-master/)
+    * [geodocker-slave](https://hub.docker.com/r/daunnc/geodocker-slave/)
+* Dockerhub images tags description:
+  * 0.1.0 - contains [Accumulo 1.6.5]((https://accumulo.apache.org/)) and Scala 2.10 [Spark 1.5.2](http://spark.apache.org/).
+  * 0.1.1 - contains [Accumulo 1.6.5]((https://accumulo.apache.org/)) and Scala 2.11 [Spark 1.5.2](http://spark.apache.org/).
+  * 0.2.0 - contains [Accumulo 1.7.0]((https://accumulo.apache.org/)) and Scala 2.10 [Spark 1.5.2](http://spark.apache.org/).
+  * 0.2.1 - contains [Accumulo 1.7.0]((https://accumulo.apache.org/)) and Scala 2.11 [Spark 1.5.2](http://spark.apache.org/).
 
 [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave/): 
 

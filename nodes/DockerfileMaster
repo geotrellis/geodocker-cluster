@@ -45,7 +45,7 @@ RUN chown hduser:hadoop /home/hduser/.ssh/config
 ADD cfg/zookeeper/zoo.cfg $ZOOKEEPER_HOME/conf/zoo.cfg
 ADD cfg/zookeeper/zookeeper-env.sh $ZOOKEEPER_HOME/zookeeper/conf/zookeeper-env.sh
 
-ADD cfg/accumulo/${ACCUMULO_VERSION}/* $ACCUMULO_HOME/conf/
+ADD cfg/accumulo/${ACCUMULO_VERSION%.*}/* $ACCUMULO_HOME/conf/
 ADD cfg/hadoop/masters $ACCUMULO_HOME/conf/masters
 ADD cfg/hadoop/slaves $ACCUMULO_HOME/conf/slaves
 

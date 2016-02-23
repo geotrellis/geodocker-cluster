@@ -17,7 +17,7 @@ realpath ()
 # Ingest tiled GeoTiff into Accumulo
 
 # Geotrellis (gt-admin) ingest jar
-export JAR="target/scala-2.10/GeoTrellis-Tutorial-Project-assembly-0.1-SNAPSHOT.jar"
+export JAR="target/scala-${SCALA_VERSION}/GeoTrellis-Tutorial-Project-assembly-0.1-SNAPSHOT.jar"
 
 # Directory with the input tiled GeoTiff's
 LAYERS="./data/arg_wm"

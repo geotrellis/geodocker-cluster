@@ -55,7 +55,7 @@ A more detailed description how to run and to build containers can be found in e
 
 **Sart the n-node cluster.**
 
- * `cd nodes; ./start-cluster.sh --nodes=n`
+ * `cd nodes; ./start-cluster.sh --nodes=n # n >= 1`
 
 ## Probable issues and solutions
 

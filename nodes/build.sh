@@ -3,6 +3,10 @@
 for i in "$@"
 do
 case $i in
+    -a=*|--accumulo=*)
+    ACCUMULO_VERSION="${i#*=}"
+    shift 
+    ;;
     -t=*|--tag=*)
     TAG="${i#*=}"
     shift

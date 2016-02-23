@@ -81,7 +81,7 @@ RUN chown -R hduser:hadoop /usr/local/accumulo/
 
 # Spark
 RUN curl -s https://bitbucket.org/pomadchin/binary/raw/f291a30f390a187998297dade24abf839a93f5a5/spark/spark-${SPARK_VERSION}-bin-hadoop-2.6_scala-${SCALA_VERSION}.tgz | tar -xz -C /usr/local/
-RUN mv spark-${SPARK_VERSION}-bin-hadoop-2.6_scala-${SCALA_VERSION}.tgz /usr/local/spark
+RUN mv /usr/local/spark-${SPARK_VERSION}-bin-hadoop-2.6.tgz /usr/local/spark
 RUN chown -R hduser:hadoop /usr/local/spark
 RUN mkdir -p /home/hduser/spark/tmp
 RUN chown -R hduser:hadoop /home/hduser/spark/tmp

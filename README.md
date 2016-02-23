@@ -28,13 +28,12 @@ Base images:
   * Available on [Dockerhub](https://hub.docker.com/): 
     * [geodocker-master](https://hub.docker.com/r/daunnc/geodocker-master/)
     * [geodocker-slave](https://hub.docker.com/r/daunnc/geodocker-slave/)
-
-* Dockerhub images tags description:
-  * 0.1.0 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
-  * 0.1.1 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
-  * 0.2.0 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
-  * 0.2.1 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
-  * latest - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
+  * Dockerhub images tags description:
+    * 0.1.0 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
+    * 0.1.1 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
+    * 0.2.0 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
+    * 0.2.1 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
+    * latest - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
 
 [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave/): 
 

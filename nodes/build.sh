@@ -48,8 +48,8 @@ if ${BUILD_BASE}; then
   cd ~-
 fi
 
-docker build -t daunnc/geodocker-master:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
-docker build -t daunnc/geodocker-slave:${TAG} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileSlave .
+docker build -t daunnc/geodocker-master:${TAG} --build-arg ACCUMULO_CONFIG=${ACCUMULO_VERSION%.*} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileMaster .
+docker build -t daunnc/geodocker-slave:${TAG} --build-arg ACCUMULO_CONFIG=${ACCUMULO_VERSION%.*} --build-arg ACCUMULO_VERSION=${ACCUMULO_VERSION} -f DockerfileSlave .
 
 if ${PUBLISH}; then
   docker push daunnc/geodocker-master:${TAG}

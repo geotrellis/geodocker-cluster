@@ -14,7 +14,8 @@ fi
 sleep 4
 su hduser -c ". /home/hduser/.bashrc; $ACCUMULO_HOME/bin/accumulo init --instance-name gis --password secret"
 su hduser -c ". /home/hduser/.bashrc; hadoop fs -mkdir -p /accumulo/system-classpath/"
-su hduser -c ". /home/hduser/.bashrc; $ACCUMULO_HOME/bin/start-all.sh"
+# su hduser -c ". /home/hduser/.bashrc; $ACCUMULO_HOME/bin/start-all.sh"
+$ACCUMULO_HOME/bin/start-all.sh # weird accumulo logs workaround (happens on some docker settings)
 su hduser -c ". /home/hduser/.bashrc; $SPARK_HOME/sbin/start-all.sh"
 # tail -f $HADOOP_INSTALL/logs/*s
 while true; do sleep 1; done

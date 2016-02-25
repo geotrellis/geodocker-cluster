@@ -6,8 +6,8 @@ Docker containers with prepared environment to run [GeoTrellis](https://github.c
 
 * [Hadoop (HDFS + YARN) 2.7.1](https://hadoop.apache.org/)
 * [ZooKeeper 3.4.6](https://zookeeper.apache.org/)
-* [Accumulo 1.6.4 / 1.7.0](https://accumulo.apache.org/) (the specific version to use is configurable)
-* [Spark 1.5.2](http://spark.apache.org/)
+* [Accumulo 1.6.x / 1.7.x](https://accumulo.apache.org/) (the specific version to use is configurable)
+* [Spark 1.5.2 (Scala 2.10 / Scala 2.11)](http://spark.apache.org/)
 
 ## Repository short description (index of ReadMe docs)
 
@@ -16,31 +16,24 @@ Base images:
 * [base image](./base)
   * Contains a Dockerfile to build an image with Hadoop, ZooKeeper, Accumulo and Spark installed (but not configured).
   * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-base](https://hub.docker.com/r/daunnc/geo-base/)
+    * [geodocker-base](https://hub.docker.com/r/daunnc/geodocker-base/)
 
 * [serf image](./serf)
   * Contains a Dockerfile to build an Ubuntu 14.04 image with [serf](https://www.serfdom.io/).
   * Available on [Dockerhub](https://hub.docker.com/): 
     * [serf](https://hub.docker.com/r/daunnc/serf/)
 
-Concrete images:
-Note: It is possible to have a multinode (n-node) cluster with any number of Zookeeper instances.
-
-* [single-node image](./single-node)
-  * Contains a ZooKeeper node, working in a singlenode mode. 
+* [nodes](./nodes)
+  * Contains a cluster with a ZooKeeper node, working in a singlenode mode. 
   * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-sn](https://hub.docker.com/r/daunnc/geo-master-sn/)
-    * [geo-slave-sn](https://hub.docker.com/r/daunnc/geo-slave-sn/)
-
-* [two-node image](./two-node)
-  * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-twn](https://hub.docker.com/r/daunnc/geo-master-twn/)
-    * [geo-slave-twn](https://hub.docker.com/r/daunnc/geo-slave-twn/)
-
-* [three-node image](./three-node)
-  * Available on [Dockerhub](https://hub.docker.com/): 
-    * [geo-master-thn](https://hub.docker.com/r/daunnc/geo-master-thn/)
-    * [geo-slave-thn](https://hub.docker.com/r/daunnc/geo-slave-thn/)
+    * [geodocker-master](https://hub.docker.com/r/daunnc/geodocker-master/)
+    * [geodocker-slave](https://hub.docker.com/r/daunnc/geodocker-slave/)
+  * Dockerhub images tags description:
+    * 0.1.0 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
+    * 0.1.1 - contains [Accumulo 1.6.5](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
+    * 0.2.0 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
+    * 0.2.1 - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.11)](http://spark.apache.org/)
+    * latest - contains [Accumulo 1.7.0](https://accumulo.apache.org/) and [Spark 1.5.2 (Scala 2.10)](http://spark.apache.org/)
 
 [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave/): 
 
@@ -57,16 +50,16 @@ A more detailed description how to run and to build containers can be found in e
 * Build base container
   * `cd base; ./build.sh`
 
-* Build n-node master and slave containers
-  * `cd n-node; ./build.sh`
+* Build master and slave containers
+  * `cd nodes; ./build.sh`
 
-**Sart the n-container cluster.**
+**Sart the n-node cluster.**
 
- * `cd n-node; ./start-cluster.sh --nodes=nn # nn >= n`
+ * `cd nodes; ./start-cluster.sh --nodes=n # n >= 1`
 
 ## Probable issues and solutions
 
-A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node(s) address.
+A possible use case, is to have possibility to access cluster outside the GeoDocker Cluster (on a separate machine or on a host machine). The probable issue can happen, trying to run some `Accumulo` related jobs where we have to provide a `ZooKeeper` node address.
 
 ```bash
 WARN impl.ServerClient: Failed to find an available server 

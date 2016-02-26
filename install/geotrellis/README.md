@@ -5,6 +5,8 @@ Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) installations an
 ## Scripts description
 
 * `install.sh` — installs [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
+  * `install.sh` has a `-s=<scala version> | --scala=<scala version>` argument, provide it if you want to test a specific Scala version.
+
 * `update.sh` — updates [GeoTrellis](https://github.com/geotrellis/geotrellis) and [GeoTrellis Chattanooga demo](https://github.com/pomadchin/geotrellis-chatta-demo)
 
 ## Run test example

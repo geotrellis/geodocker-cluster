@@ -12,7 +12,7 @@ case $i in
 esac
 done
 
-$SCALA_VERSION=${SCALA_VERSION:-"2.10.5"}
+SCALA_VERSION=${SCALA_VERSION:-"2.10.5"}
 
 docker exec -it master1 bash -c ". ~/.bashrc && \
                                   rm -rf geotrellis && git clone https://github.com/geotrellis/geotrellis.git && \

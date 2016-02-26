@@ -1,4 +1,5 @@
 #!/bin/bash
+. /root/.bashrc
 
 /usr/bin/svscan /etc/service/ &
 sleep 4

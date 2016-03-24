@@ -11,16 +11,20 @@ Provides [GeoTrellis](https://github.com/geotrellis/geotrellis) installations an
 
 ## Run test example
 
-[GeoTrellis](https://github.com/geotrellis/geotrellis) demo consists of two parts: web service and tiles ingest. Follow these steps to run demo:
+[GeoTrellis](https://github.com/geotrellis/geotrellis) [demo](https://github.com/geotrellis/geotrellis-chatta-demo) consists of two parts: web service and tiles ingest. Demo used: [https://github.com/geotrellis/geotrellis-chatta-demo](https://github.com/geotrellis/geotrellis-chatta-demo).
 
-1. Run the [ingest](./ingest.sh) script:
+1. Run the [ingest](./ingest.sh) script to ingest demo data:
     ```bash
     ./ingest.sh
     ```
 
-4. Run server ([run-server](./run-server.sh)): 
+2. Run server ([run-server](./run-server.sh)): 
     ```bash
     ./run-server.sh
     ```
 
 Server would be available at `localhost:8777`.
+
+This demo would be installed into `/data` directory, inside the container.
+
+Demo depends on [GeoTrellis](https://github.com/geotrellis/geotrellis) RC1.

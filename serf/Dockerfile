@@ -12,16 +12,14 @@ FROM ubuntu:14.04
 
 MAINTAINER Grigory Pomadchin, daunnc@gmail.com
 
-RUN apt-get update
-RUN apt-get install -y dnsmasq unzip curl
+RUN apt-get update && apt-get install -y dnsmasq unzip curl
 
 # dnsmasq configuration
 ADD dnsmasq.conf /etc/dnsmasq.conf
 ADD resolv.dnsmasq.conf /etc/resolv.dnsmasq.conf
 
 # install serfdom.io
-RUN curl -Lso /tmp/serf.zip https://bitbucket.org/pomadchin/binary/raw/f291a30f390a187998297dade24abf839a93f5a5/serf/0.5.0_linux_amd64.zip
-RUN unzip /tmp/serf.zip -d /bin
+RUN curl -Lso /tmp/serf.zip https://bitbucket.org/pomadchin/binary/raw/f291a30f390a187998297dade24abf839a93f5a5/serf/0.5.0_linux_amd64.zip && unzip /tmp/serf.zip -d /bin
 
 ENV SERF_CONFIG_DIR /etc/serf
 

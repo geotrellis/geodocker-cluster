@@ -17,7 +17,7 @@ RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y maven llvm-gcc build-essential zlib1g-dev make cmake pkg-config libssl-dev \ 
     automake autoconf curl zip unzip git imagemagick gdal-bin python-gdal python python-setuptools \
     python-numpy python-pip python-dev python-scipy libgdal-dev libgdal1-dev libgdal-java geotiff-bin \
-    install software-properties-common && add-apt-repository ppa:webupd8team/java && apt-get -y update
+    software-properties-common && add-apt-repository ppa:webupd8team/java && apt-get -y update
 
 # Accept the Oracle Java license
 RUN echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 boolean true" | debconf-set-selections

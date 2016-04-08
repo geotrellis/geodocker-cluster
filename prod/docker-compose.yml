@@ -6,42 +6,70 @@ services:
     geodocker-zookeeper:
         build: ./zookeeper
         image: daunnc/geodocker-zookeeper:latest
+        links: 
+          - geodocker-pbase
     geodocker-hadoop-base:
         build: ./hadoop/base
-        image: daunnc/geodocker-hadoop-base:latest        
+        image: daunnc/geodocker-hadoop-base:latest
+        links: 
+          - geodocker-pbase
     geodocker-hadoop-data:
         build: ./hadoop/data
         image: daunnc/geodocker-hadoop-data:latest
+        links: 
+          - geodocker-hadoop-base
     geodocker-hadoop-name:
         build: ./hadoop/name
         image: daunnc/geodocker-hadoop-name:latest
+        links: 
+          - geodocker-hadoop-base
     geodocker-hadoop-sname:
         build: ./hadoop/sname
         image: daunnc/geodocker-hadoop-sname:latest
+        links: 
+          - geodocker-hadoop-base
     geodocker-accumulo-base:
         build: ./accumulo/base
         image: daunnc/geodocker-accumulo-base:latest
+        links: 
+          - geodocker-hadoop-base
     geodocker-accumulo-gc:
         build: ./accumulo/gc
         image: daunnc/geodocker-accumulo-gc:latest
+        links: 
+          - geodocker-accumulo-base
     geodocker-accumulo-master:
         build: ./accumulo/master
         image: daunnc/geodocker-accumulo-master:latest
+        links: 
+          - geodocker-accumulo-base
     geodocker-accumulo-monitor:
         build: ./accumulo/monitor
         image: daunnc/geodocker-accumulo-monitor:latest
+        links: 
+          - geodocker-accumulo-base
     geodocker-accumulo-tracer:
         build: ./accumulo/tracer
         image: daunnc/geodocker-accumulo-tracer:latest
+        links: 
+          - geodocker-accumulo-base
     geodocker-accumulo-tserver:
         build: ./accumulo/tserver
         image: daunnc/geodocker-accumulo-tserver:latest
+        links: 
+          - geodocker-accumulo-base
     geodocker-spark-base:
         build: ./spark/base
         image: daunnc/geodocker-spark-base:latest
+        links: 
+          - geodocker-hadoop-base
     geodocker-spark-master:
         build: ./spark/master
         image: daunnc/geodocker-spark-master:latest
+        links: 
+          - geodocker-spark-base
     geodocker-spark-worker:
         build: ./spark/worker
         image: daunnc/geodocker-spark-worker:latest
+        links: 
+          - geodocker-spark-base

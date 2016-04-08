@@ -1,45 +1,47 @@
-geodocker-pbase:
-    image: daunnc/geodocker-pbase:latest
-    build: ./base
-geodocker-zookeeper:
-    image: daunnc/geodocker-zookeeper:latest
-    build: ./zookeeper
-geodocker-hadoop-base:
-    image: daunnc/geodocker-hadoop-base:latest
-    build: ./hadoop/base
-geodocker-hadoop-data:
-    image: daunnc/geodocker-hadoop-data:latest
-    build: ./hadoop/data
-geodocker-hadoop-name:
-    image: daunnc/geodocker-hadoop-name:latest
-    build: ./hadoop/name
-geodocker-hadoop-sname:
-    image: daunnc/geodocker-hadoop-sname:latest
-    build: ./hadoop/sname
-geodocker-accumulo-base:
-    image: daunnc/geodocker-accumulo-base:latest
-    build: ./accumulo/base
-geodocker-accumulo-gc:
-    image: daunnc/geodocker-accumulo-gc:latest
-    build: ./accumulo/gc
-geodocker-accumulo-master:
-    image: daunnc/geodocker-accumulo-master:latest
-    build: ./accumulo/master
-geodocker-accumulo-monitor:
-    image: daunnc/geodocker-accumulo-monitor:latest
-    build: ./accumulo/monitor
-geodocker-accumulo-tracer:
-    image: daunnc/geodocker-accumulo-tracer:latest
-    build: ./accumulo/tracer
-geodocker-accumulo-tserver:
-    image: daunnc/geodocker-accumulo-tserver:latest
-    build: ./accumulo/tserver
-geodocker-spark-base:
-    image: daunnc/geodocker-spark-base:latest
-    build: ./spark/base
-geodocker-spark-master:
-    image: daunnc/geodocker-spark-master:latest
-    build: ./spark/master
-geodocker-spark-worker:
-    image: daunnc/geodocker-spark-worker:latest
-    build: ./spark/worker
+version: '2'
+services:
+    geodocker-pbase:
+        build: ./base
+        image: daunnc/geodocker-pbase:latest
+    geodocker-zookeeper:
+        build: ./zookeeper
+        image: daunnc/geodocker-zookeeper:latest
+    geodocker-hadoop-base:
+        build: ./hadoop/base
+        image: daunnc/geodocker-hadoop-base:latest        
+    geodocker-hadoop-data:
+        build: ./hadoop/data
+        image: daunnc/geodocker-hadoop-data:latest
+    geodocker-hadoop-name:
+        build: ./hadoop/name
+        image: daunnc/geodocker-hadoop-name:latest
+    geodocker-hadoop-sname:
+        build: ./hadoop/sname
+        image: daunnc/geodocker-hadoop-sname:latest
+    geodocker-accumulo-base:
+        build: ./accumulo/base
+        image: daunnc/geodocker-accumulo-base:latest
+    geodocker-accumulo-gc:
+        build: ./accumulo/gc
+        image: daunnc/geodocker-accumulo-gc:latest
+    geodocker-accumulo-master:
+        build: ./accumulo/master
+        image: daunnc/geodocker-accumulo-master:latest
+    geodocker-accumulo-monitor:
+        build: ./accumulo/monitor
+        image: daunnc/geodocker-accumulo-monitor:latest
+    geodocker-accumulo-tracer:
+        build: ./accumulo/tracer
+        image: daunnc/geodocker-accumulo-tracer:latest
+    geodocker-accumulo-tserver:
+        build: ./accumulo/tserver
+        image: daunnc/geodocker-accumulo-tserver:latest
+    geodocker-spark-base:
+        build: ./spark/base
+        image: daunnc/geodocker-spark-base:latest
+    geodocker-spark-master:
+        build: ./spark/master
+        image: daunnc/geodocker-spark-master:latest
+    geodocker-spark-worker:
+        build: ./spark/worker
+        image: daunnc/geodocker-spark-worker:latest

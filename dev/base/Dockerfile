@@ -60,7 +60,7 @@ RUN mv /usr/local/zookeeper-${ZOOKEEPER_VERSION} /usr/local/zookeeper && \
     mkdir -p /var/log/zookeeper && chown -R hduser:hadoop /var/zookeeper && chown -R hduser:hadoop /var/log/zookeeper
 
 # Accumulo
-RUN curl -s http://archive.apache.org/dist/accumulo/${ACCUMULO_VERSION}/accumulo-${ACCUMULO_VERSION}-bin.tar.gz | tar -xz -C /usr/local
+RUN curl -s http://apache-mirror.rbc.ru/pub/apache/accumulo/${ACCUMULO_VERSION}/accumulo-${ACCUMULO_VERSION}-bin.tar.gz | tar -xz -C /usr/local
 RUN mv /usr/local/accumulo-${ACCUMULO_VERSION} /usr/local/accumulo && \
     rm -r /usr/local/accumulo/logs && mkdir /usr/local/accumulo/logs && \
     mkdir -p /usr/local/accumulo/walogs && chown -R hduser:hadoop /usr/local/accumulo/

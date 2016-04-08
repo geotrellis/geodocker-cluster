@@ -2,8 +2,6 @@ FROM daunnc/geodocker-spark-base:latest
 
 MAINTAINER Pomadchin Grigory, daunnc@gmail.com
 
-ENV SPARK_MASTER
-
 RUN mkdir -p /data/spark
 
 VOLUME [ "/data/spark" ]

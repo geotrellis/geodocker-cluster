@@ -9,7 +9,7 @@ ENV PATH $PATH:$ACCUMULO_HOME/bin
 
 RUN set -x && \
     mkdir -p ${ACCUMULO_HOME} ${ACCUMULO_CONF_DIR} && \
-    curl -# http://archive.apache.org/dist/accumulo/${ACCUMULO_VERSION}/accumulo-${ACCUMULO_VERSION}-bin.tar.gz | tar -xz -C ${ACCUMULO_HOME} --strip-components=1 && \
+    curl -# http://apache-mirror.rbc.ru/pub/apache/accumulo/${ACCUMULO_VERSION}/accumulo-${ACCUMULO_VERSION}-bin.tar.gz | tar -xz -C ${ACCUMULO_HOME} --strip-components=1 && \
     cp ${ACCUMULO_HOME}/conf/examples/3GB/standalone/* ${ACCUMULO_CONF_DIR}/
 
 COPY ./fs /

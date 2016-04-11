@@ -28,7 +28,7 @@ Base images:
     * [name](./hadoop/name)
     * [sname](./hadoop/sname)
 * [spark](./spark)
-  * Contains Spark 1.5.2 images:
+  * Contains Spark 1.5.2 (Scala 2.10 by default) images:
     * [base](./spark/base) 
     * [master](./spark/master)
     * [worker](./spark/worker)

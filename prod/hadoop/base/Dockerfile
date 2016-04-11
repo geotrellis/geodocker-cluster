@@ -15,3 +15,4 @@ RUN set -x && \
 COPY ./fs /
 
 WORKDIR "${HADOOP_HOME}"
+ENTRYPOINT [ "/sbin/entrypoint.sh" ]

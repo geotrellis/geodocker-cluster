@@ -14,4 +14,4 @@ RUN set -x && \
 COPY ./fs /
 
 WORKDIR "${SPARK_HOME}"
-ENTRYPOINT [ ]
+ENTRYPOINT [ "/sbin/entrypoint.sh" ]

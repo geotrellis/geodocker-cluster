@@ -15,3 +15,4 @@ RUN set -x && \
 COPY ./fs /
 
 WORKDIR "${ACCUMULO_HOME}"
+ENTRYPOINT [ "/sbin/entrypoint.sh" ]

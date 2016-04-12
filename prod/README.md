@@ -47,9 +47,43 @@ A more detailed description how to run and to build containers can be found in e
 
 ## Run a multinode cluster
 
-TODO...
+Example of starting a multinode cluster on three machines. Node1 is a master node, Node2 and Node3 slave nodes. Zookeeper strats minimum on three nodes.
+
+```
+## Zookeepers
+# Node1
+./1-zookeeper.sh -t=0.1.0 -zi=1 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+# Node2
+./1-zookeeper.sh -t=0.1.0 -zi=2 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+# Node3
+./1-zookeeper.sh -t=0.1.0 -zi=3 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+
+## Hadoop
+# Node1
+./1-hadoop-name.sh -t=0.1.0 -hma=GeoServer1
+./2-hadoop-sname.sh -t=0.1.0 -hma=GeoServer1
+./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
+# Node2, Node3
+./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
+./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
+
+## Accumulo
+# Node1
+./1-accumulo-init.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./2-accumulo-master.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./3-accumulo-tracer.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./4-accumulo-gc.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./5-accumulo-monitor.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+# Node2, Node3
+./6-accumulo-tserver.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+
+## Spark
+# Node1
+./1-spark-master.sh -t=0.1.0 -hma=GeoServer1
+# Node2, Node3
+./2-spark-worker.sh -t=0.1.0 -hma=GeoServer1 -sm=GeoServer2
+```
 
 ## License
 
-* Based on a repository: https://github.com/alvinhenrick/hadoop-mutinode
 * Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0

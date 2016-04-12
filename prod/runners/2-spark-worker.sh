@@ -8,11 +8,11 @@ case $i in
     shift
     ;;
     -hma=*|--hadoop-master-address=*)
-    ${HADOOP_MASTER_ADDRESS}="${i#*=}"
+    HADOOP_MASTER_ADDRESS="${i#*=}"
     shift
     ;;
     -sm=*|--spark-master=*)
-    ${SPARK_MASTER}="${i#*=}"
+    SPARK_MASTER="${i#*=}"
     shift
     ;;
     *)

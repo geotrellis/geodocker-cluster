@@ -8,7 +8,7 @@ case $i in
     shift
     ;;
     -hma=*|--hadoop-master-address=*)
-    ${HADOOP_MASTER_ADDRESS}="${i#*=}"
+    HADOOP_MASTER_ADDRESS="${i#*=}"
     shift
     ;;    
     *)

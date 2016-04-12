@@ -8,23 +8,23 @@ case $i in
     shift
     ;;
     -hma=*|--hadoop-master-address=*)
-    ${HADOOP_MASTER_ADDRESS}="${i#*=}"
+    HADOOP_MASTER_ADDRESS="${i#*=}"
     shift
     ;;
     -az=*|--accumulo-zookeepers=*)
-    ${ACCUMULO_ZOOKEEPERS}="${i#*=}"
+    ACCUMULO_ZOOKEEPERS="${i#*=}"
     shift
     ;;
     -as=*|--accumulo-secret=*)
-    ${ACCUMULO_SECRET}="${i#*=}"
+    ACCUMULO_SECRET="${i#*=}"
     shift
     ;;
     -ap=*|--accumulo-password=*)
-    ${ACCUMULO_PASSWORD}="${i#*=}"
+    ACCUMULO_PASSWORD="${i#*=}"
     shift
     ;;
     -in=*|--instance-name=*)
-    ${INSTANCE_NAME}="${i#*=}"
+    INSTANCE_NAME="${i#*=}"
     shift
     ;;
     *)

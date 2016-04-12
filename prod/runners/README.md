@@ -9,6 +9,7 @@ Shell scripts to run containers.
 ```bash
   Options:
     -t=<tag>     | --tag=<tag>                 Image tag [default: latest].
+    -v=<dir>     | --volume=<dir>              Volume to mount ZooKeeper data [default: /data/gt/zookeeper].
     -zi=<number> | --zookeeper-id=<number>     ZooKeeper self id.
     -zs1=<name>  | --zookeeper-server-1=<name> ZooKeeper server number 1.
     -zs2=<name>  | --zookeeper-server-2=<name> ZooKeeper server number 2.
@@ -20,6 +21,7 @@ Shell scripts to run containers.
 ```bash
   Options:
     -t=<tag>    | --tag=<tag>                    Image tag [default: latest].
+    -v=<dir>    | --volume=<dir>                 Volume to mount HDFS [default: /data/gt/hdfs].
     -hma=<name> | --hadoop-master-address=<name> Hadoop master name.    
 ```
 
@@ -40,6 +42,7 @@ Shell scripts to run containers.
 ```bash
   Options:
     -t=<tag>    | --tag=<tag>                    Image tag [default: latest].
+    -v=<dir>    | --volume=<dir>                 Volume to mount Spark data dir [default: /data/gt/spark].
     -hma=<name> | --hadoop-master-address=<name> Hadoop master name.
     -sm=<name>  | --spark-master=<name>          Spark master node name. 
 ```

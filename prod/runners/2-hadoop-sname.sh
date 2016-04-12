@@ -7,6 +7,10 @@ case $i in
     TAG="${i#*=}"
     shift
     ;;
+    -v=*|--volume=*)
+    VOLUME="${i#*=}"
+    shift
+    ;;
     -hma=*|--hadoop-master-address=*)
     HADOOP_MASTER_ADDRESS="${i#*=}"
     shift
@@ -19,7 +23,7 @@ done
 docker run \
   --name=hadoop-sname \
   --net=host \
-  --volume=/data/gt/hdfs:/data/hdfs \
+  --volume=${VOLUME:-"/data/gt/hdfs"}:/data/hdfs \
   --detach \
   --restart=always \
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \

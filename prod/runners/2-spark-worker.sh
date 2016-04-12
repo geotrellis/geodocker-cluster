@@ -7,6 +7,10 @@ case $i in
     TAG="${i#*=}"
     shift
     ;;
+    -v=*|--volume=*)
+    VOLUME="${i#*=}"
+    shift
+    ;;
     -hma=*|--hadoop-master-address=*)
     HADOOP_MASTER_ADDRESS="${i#*=}"
     shift
@@ -31,5 +35,5 @@ docker run \
   --env="SPARK_WORKER_MEMORY=16g" \
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
   --env="SPARK_MASTER=${SPARK_MASTER}" \
-  --volume=/data/gt/spark:/data/spark \
+  --volume=${VOLUME:-"/data/gt/spark"}:/data/spark \
   daunnc/geodocker-spark-worker:${TAG:-"latest"}

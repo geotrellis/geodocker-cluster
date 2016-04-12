@@ -7,6 +7,10 @@ case $i in
     TAG="${i#*=}"
     shift
     ;;
+    -v=*|--volume=*)
+    VOLUME="${i#*=}"
+    shift
+    ;;
     -zi=*|--zookeeper-id=*)
     ZOOKEEPER_ID="${i#*=}"
     shift
@@ -31,7 +35,7 @@ done
 docker run \
   --name=zookeeper \
   --net=host \
-  --volume=/data/gt/zookeeper:/data/zookeeper \
+  --volume=${VOLUME:-"/data/gt/zookeeper"}:/data/zookeeper \
   --env="ZOOKEEPER_ID=${ZOOKEEPER_ID}" \
   --env="ZOOKEEPER_SERVER_1=${ZOOKEEPER_SERVER_1}" \
   --env="ZOOKEEPER_SERVER_2=${ZOOKEEPER_SERVER_2}" \

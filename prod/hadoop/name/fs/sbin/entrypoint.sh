@@ -10,4 +10,4 @@ if  [[ ! -f /data/hdfs/name/current/VERSION ]]; then
   echo
 fi
 
-exec $@
+exec "$@"

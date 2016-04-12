@@ -20,4 +20,4 @@ do
   fi
 done
 
-exec $@
+exec "$@"

@@ -18,3 +18,5 @@ fi
 if [[ -v ${ACCUMULO_PASSWORD} ]]; then
 	sed -i.bak "s/{ACCUMULO_PASSWORD}/${ACCUMULO_PASSWORD}/g" ${ACCUMULO_CONF_DIR}/accumulo-site.xml
 fi
+
+exec $@

@@ -4,7 +4,7 @@ Shell scripts to run containers.
 
 # Scripts arguments description
 
-## Zookeepers
+## Zookeeper
 
 ```bash
   Options:

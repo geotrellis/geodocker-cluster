@@ -22,5 +22,5 @@ docker run \
   --volume=/data/gt/hdfs:/data/hdfs \
   --detach \
   --restart=always \
-  --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \  
+  --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
   daunnc/geodocker-hadoop-data:${TAG:-"latest"}

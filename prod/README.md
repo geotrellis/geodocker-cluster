@@ -49,7 +49,7 @@ A more detailed description how to run and to build containers can be found in e
 
 Example of starting a multinode cluster on three machines. Node1 is a master node, Node2 and Node3 slave nodes. Zookeeper strats minimum on three nodes.
 
-```
+```bash
 ## Zookeepers
 # Node1
 ./1-zookeeper.sh -t=0.1.0 -zi=1 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3

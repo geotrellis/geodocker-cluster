@@ -67,7 +67,6 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 ./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
 # Node2, Node3
 ./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
-./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
 
 ## Accumulo
 # Node1

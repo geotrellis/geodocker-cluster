@@ -33,7 +33,7 @@ esac
 done
 
 docker run \
-  --name=accumulo-master \
+  --name=accumulo-init \
   --net=host \
   --detach \
   --restart=always \

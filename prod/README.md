@@ -82,7 +82,7 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 # Node1
 ./1-spark-master.sh -t=0.1.0 -hma=GeoServer1
 # Node2, Node3
-./2-spark-worker.sh -t=0.1.0 -hma=GeoServer1 -sm=GeoServer2
+./2-spark-worker.sh -t=0.1.0 -hma=GeoServer1 -sm=GeoServer1
 ```
 
 ## License

@@ -47,7 +47,7 @@ A more detailed description how to run and to build containers can be found in e
 
 ## Run a multinode cluster
 
-Example of starting a multinode cluster on three machines. Node1 is a master node, Node2 and Node3 slave nodes. Zookeeper strats minimum on three nodes.
+Example of starting a multinode cluster on three machines. Node1 (hostname GeoServer1) is a master node, Node2 (hostname GeoServer2) and Node3 (hostname GeoServer3) slave nodes. Zookeeper strats minimum on three nodes.
 
 ```bash
 ## Zookeepers

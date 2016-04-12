@@ -33,7 +33,9 @@ Base images:
     * [master](./spark/master)
     * [worker](./spark/worker)
 * [zookeeper](./zookeeper)
-  * Contains Zookeeper 3.4.6 image    
+  * Contains Zookeeper 3.4.6 image
+* [runners](./runners)
+  * Contains runner scripts to simplify cluster startup
 
 ## Build and publish a multinode cluster
 

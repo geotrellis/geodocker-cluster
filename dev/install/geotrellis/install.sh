@@ -16,7 +16,7 @@ SCALA_VERSION=${SCALA_VERSION:-"2.10.5"}
 
 docker exec -it master1 bash -c ". ~/.bashrc && \
                                   rm -rf geotrellis; git clone https://github.com/geotrellis/geotrellis.git && \
-                                  cd ./geotrellis; ./scripts/publish-local.sh; cd ../ && \
+                                  cd ./geotrellis; git checkout v0.10.0-RC4 && ./scripts/publish-local.sh; cd ../ && \
                                   rm -rf geotrellis-chatta-demo; git clone https://github.com/pomadchin/geotrellis-chatta-demo.git && \
                                   cd ./geotrellis-chatta-demo/geotrellis; git checkout spark-version; ./sbt -Dscala.version=${SCALA_VERSION} assembly"
 

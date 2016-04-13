@@ -34,13 +34,8 @@ BASE_TAG=${BASE_TAG:-latest}
 BUILD_BASE=${BUILD_BASE:-false}
 PUBLISH=${PUBLISH:-false}
 
-rm -f DockerfileMaster && git checkout DockerfileMaster
-sed "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileMaster > DockerfileMaster.new
-rm -f DockerfileMaster && mv DockerfileMaster.new DockerfileMaster
-
-rm -f DockerfileSlave && git checkout DockerfileSlave
-sed "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileSlave > DockerfileSlave.new
-rm -f DockerfileSlave && mv DockerfileSlave.new DockerfileSlave
+sed -i.bak "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileMaster
+sed -i.bak "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileSlave
 
 if ${BUILD_BASE}; then 
   cd ../base 

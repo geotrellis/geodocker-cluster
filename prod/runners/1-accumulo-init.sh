@@ -34,9 +34,7 @@ done
 
 docker run \
   --name=accumulo-init \
-  --net=host \
-  --detach \
-  --restart=always \
+  --net=host \  
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
   --env="ACCUMULO_ZOOKEEPERS=${ACCUMULO_ZOOKEEPERS}" \
   --env="ACCUMULO_SECRET=${ACCUMULO_SECRET}" \

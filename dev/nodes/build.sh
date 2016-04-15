@@ -34,6 +34,8 @@ BASE_TAG=${BASE_TAG:-latest}
 BUILD_BASE=${BUILD_BASE:-false}
 PUBLISH=${PUBLISH:-false}
 
+rm -f Dockerfile* && git checkout DockerfileMaster && git checkout DockerfileSlave
+
 sed -i.bak "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileMaster
 sed -i.bak "s/daunnc\/geodocker-base:latest/daunnc\/geodocker-base:${BASE_TAG}/g" DockerfileSlave
 

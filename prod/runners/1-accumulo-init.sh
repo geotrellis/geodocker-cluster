@@ -32,7 +32,7 @@ case $i in
 esac
 done
 
-docker run \
+docker run --rm \
   --name=accumulo-init \
   --net=host \
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
@@ -40,5 +40,4 @@ docker run \
   --env="ACCUMULO_SECRET=${ACCUMULO_SECRET}" \
   --env="ACCUMULO_PASSWORD=${ACCUMULO_PASSWORD}" \
   daunnc/geodocker-accumulo-master:${TAG:-"latest"} \
-  hadoop fs -mkdir /accumulo-classpath && \
-  accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}
+  bash -c "hadoop fs -mkdir /accumulo-classpath && accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}"

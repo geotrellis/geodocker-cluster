@@ -40,4 +40,4 @@ docker run --rm \
   --env="ACCUMULO_SECRET=${ACCUMULO_SECRET}" \
   --env="ACCUMULO_PASSWORD=${ACCUMULO_PASSWORD}" \
   daunnc/geodocker-accumulo-master:${TAG:-"latest"} \
-  bash -c "hadoop fs -mkdir /accumulo-classpath && accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}"
+  bash -c "hadoop fs -mkdir -p /accumulo-classpath && accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}"

@@ -11,8 +11,7 @@ ENV PATH $PATH:$ZOOKEEPER_HOME/bin
 
 RUN set -x && \
     mkdir -p $ZOOKEEPER_HOME $ZOOKEEPER_DATA && \
-    curl -# http://apache-mirror.rbc.ru/pub/apache/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz | tar -xz -C ${ZOOKEEPER_HOME} --strip-components=1 && \    
-    cp $ZOOKEEPER_CONF_DIR/zoo_sample.cfg $ZOOKEEPER_CONF_DIR/zoo.cfg
+    curl -# http://apache-mirror.rbc.ru/pub/apache/zookeeper/zookeeper-${ZOOKEEPER_VERSION}/zookeeper-${ZOOKEEPER_VERSION}.tar.gz | tar -xz -C ${ZOOKEEPER_HOME} --strip-components=1
 
 COPY ./fs /
 

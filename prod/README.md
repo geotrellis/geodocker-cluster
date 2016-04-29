@@ -2,6 +2,8 @@
 
 Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave).
 
+*Current version (latest)*: 0.1.1
+
 ## Environment
 
 * [Hadoop (HDFS + YARN) 2.7.1](https://hadoop.apache.org/)
@@ -15,25 +17,25 @@ Base images:
 
 * [accumulo](./accumulo)
   * Contains Accumulo 1.7.1 images: 
-    * [base](./accumulo/base) 
-    * [gc](./accumulo/gc)
-    * [master](./accumulo/master)
-    * [monitor](./accumulo/monitor)
-    * [tracer](./accumulo/tracer)
-    * [tserver](./accumulo/tserver)
+    * [base](./accumulo/base)
+    * [gc](./accumulo/gc) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-gc/)
+    * [master](./accumulo/master) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-master/)
+    * [monitor](./accumulo/monitor) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-monitor/)
+    * [tracer](./accumulo/tracer) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-tracer/)
+    * [tserver](./accumulo/tserver) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-tserver/)
 * [hadoop](./hadoop)
   * Contains Hadoop 2.7.1 images:
     * [base](./hadoop/base) 
-    * [data](./hadoop/data)
-    * [name](./hadoop/name)
-    * [sname](./hadoop/sname)
+    * [data](./hadoop/data) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-data/)
+    * [name](./hadoop/name) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-name/)
+    * [sname](./hadoop/sname) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-sname/)
 * [spark](./spark)
   * Contains Spark 1.5.2 (Scala 2.10 by default) images:
     * [base](./spark/base) 
-    * [master](./spark/master)
-    * [worker](./spark/worker)
+    * [master](./spark/master) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark-master/)
+    * [worker](./spark/worker) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark-worker/)
 * [zookeeper](./zookeeper)
-  * Contains Zookeeper 3.4.6 image
+  * Contains Zookeeper 3.4.6 image [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-zookeeper/)
 * [runners](./runners)
   * Contains runner scripts to simplify cluster startup
 
@@ -45,7 +47,7 @@ A more detailed description how to run and to build containers can be found in e
   * `docker-compose build`
 
 * Publish all images
-  * `./.docker/release -t=0.1.0 --publish`
+  * `./.docker/release -t=latest --publish`
 
 ## Run a multinode cluster
 
@@ -54,35 +56,35 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 ```bash
 ## Zookeepers
 # Node1
-./1-zookeeper.sh -t=0.1.0 -zi=1 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+./1-zookeeper.sh -t=latest -zi=1 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
 # Node2
-./1-zookeeper.sh -t=0.1.0 -zi=2 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+./1-zookeeper.sh -t=latest -zi=2 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
 # Node3
-./1-zookeeper.sh -t=0.1.0 -zi=3 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
+./1-zookeeper.sh -t=latest -zi=3 -zs1=GeoServer1 -zs2=GeoServer2 -zs3=GeoServer3
 
 ## Hadoop
 # Node1
-./1-hadoop-name.sh -t=0.1.0 -hma=GeoServer1
-./2-hadoop-sname.sh -t=0.1.0 -hma=GeoServer1
-./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
+./1-hadoop-name.sh -t=latest -hma=GeoServer1
+./2-hadoop-sname.sh -t=latest -hma=GeoServer1
+./3-hadoop-data.sh -t=latest -hma=GeoServer1
 # Node2, Node3
-./3-hadoop-data.sh -t=0.1.0 -hma=GeoServer1
+./3-hadoop-data.sh -t=latest -hma=GeoServer1
 
 ## Accumulo
 # Node1
-./1-accumulo-init.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
-./2-accumulo-master.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
-./3-accumulo-tracer.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
-./4-accumulo-gc.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
-./5-accumulo-monitor.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./1-accumulo-init.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./2-accumulo-master.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./3-accumulo-tracer.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./4-accumulo-gc.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./5-accumulo-monitor.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
 # Node2, Node3
-./6-accumulo-tserver.sh -t=0.1.0 -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
+./6-accumulo-tserver.sh -t=latest -hma=GeoServer1 -az="GeoServer1,GeoServer2,GeoServer3" -as=secret -ap=GisPwd -in=gis
 
 ## Spark
 # Node1
-./1-spark-master.sh -t=0.1.0 -hma=GeoServer1
+./1-spark-master.sh -t=latest -hma=GeoServer1
 # Node2, Node3
-./2-spark-worker.sh -t=0.1.0 -hma=GeoServer1 -sm=GeoServer1
+./2-spark-worker.sh -t=latest -hma=GeoServer1 -sm=GeoServer1
 ```
 
 ## License

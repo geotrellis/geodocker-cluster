@@ -1,0 +1,139 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+require 'yaml'
+
+Vagrant.require_version ">= 1.6"
+
+# Vagrant configuration
+current_dir    = File.dirname(File.expand_path(__FILE__))
+cluster_conf        = YAML.load_file("#{current_dir}/conf.yml")
+`echo SLAVES=#{cluster_conf["slaves"]} > .cluster-conf`
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  config.vm.provision "docker",
+    images: cluster_conf["images"]
+
+  if Vagrant.has_plugin?("vagrant-hostmanager")
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = false
+    config.hostmanager.manage_guest = true
+    config.hostmanager.ignore_private_ip = false
+    config.hostmanager.include_offline = true
+  else
+    $stderr.puts "\nERROR: Please install the vagrant-hostmanager plugin."
+    exit(1)
+  end
+
+  config.vm.define "master", primary: true do |master|
+    master.vm.hostname = "master"
+    master.vm.network "private_network", ip: "192.168.11.100"
+
+    # Disable because this will not get used.
+    master.vm.synced_folder ".", "/vagrant", disabled: true
+
+    master.vm.synced_folder "./provision", "/opt/provision", type: "nfs"
+    master.vm.synced_folder "./master", "/opt/app", type: "nfs"
+
+    master.vm.network "forwarded_port", guest: 12234, host: 10000
+    master.vm.network "forwarded_port", guest: 2181, host: 20000
+    master.vm.network "forwarded_port", guest: 3000, host: 30000
+    master.vm.network "forwarded_port", guest: 50095, host: 40000
+    master.vm.network "forwarded_port", guest: 50070, host: 50000
+    master.vm.network "forwarded_port", guest: 9999, host: 60000
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/1-zookeeper.sh"
+      s.args = ["-zi=1", "-zs1=master", "-zs2=slave-1", "-zs3=slave-2"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/1-hadoop-name.sh"
+      s.args = ["-hma=master"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/2-hadoop-sname.sh"
+      s.args = ["-hma=master"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/3-hadoop-data.sh"
+      s.args = ["-hma=master"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/2-accumulo-master.sh"
+      s.args = ["-hma=master", "-az=master,slave-1,slave-2", "-as=secret", "-ap=GisPwd", "-in=gis"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/3-accumulo-tracer.sh"
+      s.args = ["-hma=master", "-az=master,slave-1,slave-2", "-as=secret", "-ap=GisPwd", "-in=gis"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/4-accumulo-gc.sh"
+      s.args = ["-hma=master", "-az=master,slave-1,slave-2", "-as=secret", "-ap=GisPwd", "-in=gis"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/5-accumulo-monitor.sh"
+      s.args = ["-hma=master", "-az=master,slave-1,slave-2", "-as=secret", "-ap=GisPwd", "-in=gis"]
+    end
+
+    master.vm.provision "shell" do |s|
+      s.path = "../runners/1-spark-master.sh"
+      s.args = ["-hma=master"]
+    end
+
+    master.ssh.forward_x11 = true
+
+    master.vm.provider :virtualbox do |v|
+      v.memory = 4096
+      v.cpus = 2
+    end
+  end
+
+  (1..cluster_conf["slaves"]).each do |i|
+    config.vm.define "slave-#{i}" do |slave|
+      slave.vm.hostname = "slave-#{i}"
+      slave.vm.network "private_network", ip: "192.168.11.10#{i}"
+
+      # Disable because this will not get used.
+      slave.vm.synced_folder ".", "/vagrant", disabled: true
+
+      slave.vm.synced_folder "./slave", "/opt/app", type: "nfs"
+
+      slave.vm.network "forwarded_port", guest: 1000, host: 10000 + i
+      slave.vm.network "forwarded_port", guest: 2000, host: 20000 + i
+      slave.vm.network "forwarded_port", guest: 3000, host: 30000 + i
+      slave.vm.network "forwarded_port", guest: 4000, host: 40000 + i
+      slave.vm.network "forwarded_port", guest: 5000, host: 50000 + i
+      slave.vm.network "forwarded_port", guest: 6000, host: 60000 + i
+
+      slave.vm.provision "shell" do |s|
+        s.path = "../runners/1-zookeeper.sh"
+        s.args = ["-zi=#{i + 1}", "-zs1=master", "-zs2=slave-1", "-zs3=slave-2"]
+      end
+
+      slave.vm.provision "shell" do |s|
+        s.path = "../runners/6-accumulo-tserver.sh"
+        s.args = ["-hma=master", "-az=master,slave-1,slave-2", "-as=secret", "-ap=GisPwd", "-in=gis"]
+      end
+
+      slave.vm.provision "shell" do |s|
+        s.path = "../runners/2-spark-worker.sh"
+        s.args = ["-hma=master", "-sm=master"]
+      end
+
+      slave.ssh.forward_x11 = true
+
+      slave.vm.provider :virtualbox do |v|
+        v.memory = 2048
+        v.cpus = 1
+      end
+    end
+  end
+end

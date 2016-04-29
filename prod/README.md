@@ -36,6 +36,8 @@ Base images:
     * [worker](./spark/worker) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark-worker/)
 * [zookeeper](./zookeeper)
   * Contains Zookeeper 3.4.6 image [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-zookeeper/)
+* [cassandra](https://hub.docker.com/_/cassandra/)
+  * In run scripts used official cassandra image
 * [runners](./runners)
   * Contains runner scripts to simplify cluster startup
 
@@ -85,6 +87,14 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 ./1-spark-master.sh -t=latest -hma=GeoServer1
 # Node2, Node3
 ./2-spark-worker.sh -t=latest -hma=GeoServer1 -sm=GeoServer1
+
+## Cassandra
+# Node1
+./1-cassandra-master.sh -t=latests -cla=GeoServer1
+# Node2
+./2-cassandra-slave.sh -t=latests -cla=GeoServer2 -cs=GeoServer1
+# Node3
+./2-cassandra-slave.sh -t=latests -cla=GeoServer3 -cs=GeoServer1
 ```
 
 ## License

@@ -46,3 +46,13 @@ Shell scripts to run containers.
     -hma=<name> | --hadoop-master-address=<name> Hadoop master name.
     -sm=<name>  | --spark-master=<name>          Spark master node name. 
 ```
+
+## Cassandra
+
+```bash
+  Options:
+    -t=<tag>    | --tag=<tag>                       Image tag [default: latest].
+    -v=<dir>    | --volume=<dir>                    Volume to mount Spark data dir [default: /data/gt/cassandra].
+    -cla=<name> | --cassandra-listen-address=<name> Cassandra listen address (auto by default, and listens it's ip, recommended to set explicitly to avoid possible dns collisions).
+    -cs=<name>  | --cassandra-seeds=<name>          Cassandra "master" address. 
+```

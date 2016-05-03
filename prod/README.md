@@ -90,11 +90,11 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 
 ## Cassandra
 # Node1
-./1-cassandra-master.sh -t=latests -cla=GeoServer1
+./1-cassandra-master.sh -t=latest -cla=GeoServer1
 # Node2
-./2-cassandra-slave.sh -t=latests -cla=GeoServer2 -cs=GeoServer1
+./2-cassandra-slave.sh -t=latest -cla=GeoServer2 -cs=GeoServer1
 # Node3
-./2-cassandra-slave.sh -t=latests -cla=GeoServer3 -cs=GeoServer1
+./2-cassandra-slave.sh -t=latest -cla=GeoServer3 -cs=GeoServer1
 ```
 
 ## License

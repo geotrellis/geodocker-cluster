@@ -4,22 +4,23 @@ services:
         build:
           context: ./base
           dockerfile: ubuntu.dockerfile
-        image: daunnc/geodocker-pbase:latest
+        image: daunnc/geodocker-ubuntu-pbase:latest
     geodocker-centos-pbase:
         build:
           context: ./base
           dockerfile: centos.dockerfile
-        image: moradology/geobase:latest
+        image: moradology/geodocker-centos-pbase:latest
     geodocker-zookeeper:
         build: ./zookeeper
         image: daunnc/geodocker-zookeeper:latest
         depends_on: 
-          - geodocker-pbase
+          - geodocker-ubuntu-pbase
+          - geodocker-centos-pbase
     geodocker-hadoop-base:
         build: ./hadoop/base
         image: daunnc/geodocker-hadoop-base:latest
         depends_on: 
-          - geodocker-pbase
+          - geodocker-zookeeper
     geodocker-hadoop-data:
         build: ./hadoop/data
         image: daunnc/geodocker-hadoop-data:latest

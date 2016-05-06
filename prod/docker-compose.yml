@@ -1,8 +1,15 @@
 version: '2'
 services:
-    geodocker-pbase:
-        build: ./base
+    geodocker-ubuntu-pbase:
+        build:
+          context: ./base
+          dockerfile: ubuntu.dockerfile
         image: daunnc/geodocker-pbase:latest
+    geodocker-centos-pbase:
+        build:
+          context: ./base
+          dockerfile: centos.dockerfile
+        image: moradology/geobase:latest
     geodocker-zookeeper:
         build: ./zookeeper
         image: daunnc/geodocker-zookeeper:latest

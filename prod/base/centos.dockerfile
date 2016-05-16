@@ -23,7 +23,8 @@ RUN wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2
 ENV M2_HOME /usr/local/maven
 ENV PATH ${M2_HOME}/bin:${PATH}
 
-ADD maven.tar.gz /usr/local
+RUN wget -O /tmp/maven.tar.gz http://mirrors.gigenet.com/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+RUN tar -xvf /tmp/maven.tar.gz -C /usr/local/
 RUN cd /usr/local && ln -s apache-maven-3.3.9 maven
 
 

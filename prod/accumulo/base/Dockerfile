@@ -2,6 +2,9 @@ FROM daunnc/geodocker-hadoop-base:latest
 
 MAINTAINER Pomadchin Grigory, daunnc@gmail.com
 
+ARG WITH_GEO_ITERATORS
+
+ENV WITH_GEO_ITERATORS ${WITH_GEO_ITERATORS:-false}
 ENV ACCUMULO_VERSION 1.7.1
 ENV ACCUMULO_HOME /opt/accumulo
 ENV ACCUMULO_CONF_DIR $ACCUMULO_HOME/conf
@@ -13,6 +16,9 @@ RUN set -x && \
     cp ${ACCUMULO_HOME}/conf/examples/3GB/standalone/* ${ACCUMULO_CONF_DIR}/
 
 COPY ./fs /
+
+# Geo Iterators
+RUN sbin/load-iterators.sh
 
 WORKDIR "${ACCUMULO_HOME}"
 ENTRYPOINT [ "/sbin/entrypoint.sh" ]

@@ -30,8 +30,6 @@ services:
         #  - '/data/gt/hdfs:/data/hdfs'
         depends_on:
           - geodocker-hadoop-name
-          - geodocker-zookeeper
-          - geodocker-hadoop-sname    
     geodocker-accumulo-master:
         image: daunnc/geodocker-accumulo-master:latest
         entrypoint: /sbin/entrypoint-dev.sh

@@ -8,6 +8,8 @@ services:
         image: daunnc/geodocker-hadoop-name:latest        
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
+        ports:
+          - 50070:50070
         # volumes:
         #   - '/data/gt/hdfs:/data/hdfs'
         depends_on: 
@@ -64,6 +66,8 @@ services:
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
           ACCUMULO_SECRET: secret
           ACCUMULO_PASSWORD: GisPwd
+        ports:
+          - 50095:50095
         depends_on: 
           - geodocker-accumulo-master
     geodocker-accumulo-tracer:
@@ -100,6 +104,8 @@ services:
           SPARK_SUBMIT_DRIVER_MEMORY: 1g
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           MASTER: spark://geodocker-spark-master:7077
+        ports:                    
+          - 8080:8080
         # volumes:
         #  - '/data/gt/spark:/data/spark'
         depends_on: 
@@ -114,6 +120,6 @@ services:
           SPARK_WORKER_CORES: 8
           SPARK_WORKER_MEMORY: 16g
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
-          SPARK_MASTER: geodocker-spark-master
+          SPARK_MASTER: geodocker-spark-master        
         depends_on: 
           - geodocker-spark-master

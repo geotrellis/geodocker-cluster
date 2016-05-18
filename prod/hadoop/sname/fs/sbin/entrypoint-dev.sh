@@ -1,7 +1,6 @@
 #! /usr/bin/env bash
 set -eo pipefail
 
-export $HADOOP_MASTER_ADDRESS="geodocker-hadoop-name"
 export $PORT="50070"
 
 if [[ ! -v ${HADOOP_MASTER_ADDRESS} ]]; then

@@ -5,8 +5,7 @@ services:
         # volumes:
         #   - '/data/gt/hdfs:/data/hdfs'
     geodocker-hadoop-name:
-        image: daunnc/geodocker-hadoop-name:latest
-        entrypoint: /sbin/entrypoint-dev.sh
+        image: daunnc/geodocker-hadoop-name:latest        
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         # volumes:

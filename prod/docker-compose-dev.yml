@@ -92,17 +92,22 @@ services:
           - geodocker-accumulo-monitor
           - geodocker-accumulo-tracer
     geodocker-spark-master:
-        image: daunnc/geodocker-spark-master:latest        
+        image: daunnc/geodocker-spark-master:latest
+        command: spark-class org.apache.spark.deploy.master.Master -h geodocker-spark-master
+        hostname: geodocker-spark-master         
         environment:
           SPARK_DAEMON_MEMORY: 2g
           SPARK_SUBMIT_DRIVER_MEMORY: 1g
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
+          MASTER: spark://geodocker-spark-master:7077
         # volumes:
         #  - '/data/gt/spark:/data/spark'
         depends_on: 
           - geodocker-hadoop-data
     geodocker-spark-worker:
-        image: daunnc/geodocker-spark-worker:latest        
+        image: daunnc/geodocker-spark-worker:latest
+        command: spark-class org.apache.spark.deploy.worker.Worker spark://geodocker-spark-master:7077
+        hostname: geodocker-spark-worker
         environment: 
           SPARK_DAEMON_MEMORY: 2g
           SPARK_SUBMIT_DRIVER_MEMORY: 1g

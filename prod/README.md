@@ -97,6 +97,14 @@ Example of starting a multinode cluster on three machines. Node1 (hostname GeoSe
 ./2-cassandra-slave.sh -t=latest -cla=GeoServer3 -cs=GeoServer1
 ```
 
+## Run a local multinode cluster
+
+We can simulate a multinode cluster on a single machine using Docker Compose. [docker-compose-dev.yml](./docker-compose-dev.yml) is an example of instrutions to rise a singlenode cluster, adding additional services description for slave nodes allwos to rise any nodes amount (limited by host machine memory).
+
+```bash
+docker-compose -f docker-compose-dev.yml up 
+```
+
 ## License
 
 * Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0

@@ -2,11 +2,7 @@
 
 set -eo pipefail
 
-export $HADOOP_MASTER_ADDRESS="geodocker-hadoop-data"
-export $ACCUMULO_ZOOKEEPERS="geodocker-zookeeper"
-export $ACCUMULO_SECRET="secret"
-export $ACCUMULO_PASSWORD="GisPwd"
-export $PORT="50010"
+export PORT="50010"
 
 if [[ ! -v ${HADOOP_MASTER_ADDRESS} ]]; then
   sed -i.bak "s/{HADOOP_MASTER_ADDRESS}/${HADOOP_MASTER_ADDRESS}/g" ${HADOOP_CONF_DIR}/core-site.xml

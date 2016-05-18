@@ -41,6 +41,7 @@ services:
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
           ACCUMULO_SECRET: secret
           ACCUMULO_PASSWORD: GisPwd
+          INSTANCE_NAME: gis
         depends_on: 
           - geodocker-hadoop-data
     geodocker-accumulo-gc:

@@ -39,6 +39,6 @@ done
 
 echo "Ok."
 
-bash -c "hadoop fs -mkdir -p /accumulo-classpath && accumulo init --instance-name gis --password GisPwd"
+hadoop fs -mkdir -p /accumulo-classpath && accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}
 
 exec "$@"

@@ -15,6 +15,7 @@ services:
     geodocker-hadoop-sname:
         image: daunnc/geodocker-hadoop-sname:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: hdfs secondarynamenode
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         # volumes:
@@ -24,6 +25,7 @@ services:
     geodocker-hadoop-data:
         image: daunnc/geodocker-hadoop-data:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: hdfs datanode
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         # volumes:
@@ -33,6 +35,7 @@ services:
     geodocker-accumulo-master:
         image: daunnc/geodocker-accumulo-master:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: accumulo master
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -43,6 +46,7 @@ services:
     geodocker-accumulo-gc:
         image: daunnc/geodocker-accumulo-gc:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: accumulo gc
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -53,6 +57,7 @@ services:
     geodocker-accumulo-monitor:
         image: daunnc/geodocker-accumulo-monitor:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: accumulo monitor
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -63,6 +68,7 @@ services:
     geodocker-accumulo-tracer:
         image: daunnc/geodocker-accumulo-tracer:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: accumulo tracer
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -73,6 +79,7 @@ services:
     geodocker-accumulo-tserver:
         image: daunnc/geodocker-accumulo-tserver:latest
         entrypoint: /sbin/entrypoint-dev.sh
+        command: accumulo tserver
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper

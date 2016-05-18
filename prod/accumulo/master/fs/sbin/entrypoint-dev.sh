@@ -19,9 +19,9 @@ if [[ ! -v ${ACCUMULO_PASSWORD} ]]; then
   sed -i.bak "s/{ACCUMULO_PASSWORD}/${ACCUMULO_PASSWORD}/g" ${ACCUMULO_CONF_DIR}/accumulo-site.xml
 fi
 
-echo -n "Waiting for TCP connection to ${HADOOP_MASTER_ADDRESS}:${PORT}..."
+echo -n "Waiting for TCP connection to ${HADOOP_MASTER_ADDRESS}..."
 
-while ! nc -w 1 hadoop fs -ls / 2>/dev/null
+while ! hadoop fs -ls / 2>/dev/null
 do
   echo -n .
   sleep 1

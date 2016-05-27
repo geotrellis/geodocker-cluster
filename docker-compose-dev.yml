@@ -5,7 +5,8 @@ services:
         # volumes:
         #   - '/data/gt/hdfs:/data/hdfs'
     geodocker-hadoop-name:
-        image: daunnc/geodocker-hadoop-name:latest
+        image: daunnc/geodocker-hadoop:latest
+        command: name dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         ports:
@@ -15,9 +16,8 @@ services:
         depends_on:
           - geodocker-zookeeper
     geodocker-hadoop-sname:
-        image: daunnc/geodocker-hadoop-sname:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: hdfs secondarynamenode
+        image: daunnc/geodocker-hadoop:latest
+        command: sname dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         # volumes:
@@ -25,9 +25,8 @@ services:
         depends_on:
           - geodocker-hadoop-name
     geodocker-hadoop-data:
-        image: daunnc/geodocker-hadoop-data:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: hdfs datanode
+        image: daunnc/geodocker-hadoop:latest
+        command: data dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
         # volumes:
@@ -35,9 +34,8 @@ services:
         depends_on:
           - geodocker-hadoop-name
     geodocker-accumulo-master:
-        image: daunnc/geodocker-accumulo-master:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: accumulo master
+        image: daunnc/geodocker-accumulo:latest
+        command: master dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -47,9 +45,8 @@ services:
         depends_on:
           - geodocker-hadoop-data
     geodocker-accumulo-gc:
-        image: daunnc/geodocker-accumulo-gc:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: accumulo gc
+        image: daunnc/geodocker-accumulo:latest
+        command: gc dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -58,9 +55,8 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-monitor:
-        image: daunnc/geodocker-accumulo-monitor:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: accumulo monitor
+        image: daunnc/geodocker-accumulo:latest
+        command: monitor dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -71,9 +67,8 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tracer:
-        image: daunnc/geodocker-accumulo-tracer:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: accumulo tracer
+        image: daunnc/geodocker-accumulo:latest
+        command: tracer dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -82,9 +77,8 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tserver:
-        image: daunnc/geodocker-accumulo-tserver:latest
-        entrypoint: /sbin/entrypoint-dev.sh
-        command: accumulo tserver
+        image: daunnc/geodocker-accumulo:latest
+        command: tserver dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
           ACCUMULO_ZOOKEEPERS: geodocker-zookeeper
@@ -96,8 +90,8 @@ services:
           - geodocker-accumulo-monitor
           - geodocker-accumulo-tracer
     geodocker-spark-master:
-        image: daunnc/geodocker-spark-master:latest
-        command: spark-class org.apache.spark.deploy.master.Master -h geodocker-spark-master
+        image: daunnc/geodocker-spark:latest
+        command: master dev
         hostname: geodocker-spark-master
         environment:
           SPARK_DAEMON_MEMORY: 2g
@@ -111,8 +105,8 @@ services:
         depends_on:
           - geodocker-hadoop-data
     geodocker-spark-worker:
-        image: daunnc/geodocker-spark-worker:latest
-        command: spark-class org.apache.spark.deploy.worker.Worker spark://geodocker-spark-master:7077
+        image: daunnc/geodocker-spark:latest
+        command: worker dev
         hostname: geodocker-spark-worker
         environment:
           SPARK_DAEMON_MEMORY: 2g

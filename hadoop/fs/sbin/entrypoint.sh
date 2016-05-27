@@ -10,7 +10,7 @@ fi
 if [ -z "$2" ]; then
   env="prod"
 else
-  if [ $2 = "dev"]; then
+  if [ $2 = "dev" ]; then
     env="dev"
   else
     env="prod"
@@ -32,6 +32,7 @@ else
     role="other"
   fi
 fi
+echo "Running hadoop container in mode: $env with role: $role"
 
 # Run the appropriate startup script (or noop with ':')
 if [ $env = "prod" ]; then
@@ -50,6 +51,14 @@ elif [ $env = "dev" ]; then
   elif [ $role = "sname" ]; then
     sname-node-dev.sh
   fi
+fi
+
+if [ $role = "data" ]; then
+  hdfs datanode
+elif [ $role = "name" ]; then
+  hdfs namenode
+elif [ $role = "sname" ]; then
+  hdfs secondarynamenode
 fi
 
 if [ $role = "other" ]; then

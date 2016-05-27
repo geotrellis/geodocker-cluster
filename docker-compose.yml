@@ -17,73 +17,23 @@ services:
           # - geodocker-ubuntu-pbase
           - geodocker-centos-pbase
           # choose one of images (centos / ubuntu)
-    geodocker-hadoop-base:
-        build: ./hadoop/base
-        image: daunnc/geodocker-hadoop-base:latest
+    geodocker-hadoop:
+        build: ./hadoop
+        image: daunnc/geodocker-hadoop:latest
         depends_on:
           - geodocker-zookeeper
-    geodocker-hadoop-data:
-        build: ./hadoop/data
-        image: daunnc/geodocker-hadoop-data:latest
+    geodocker-accumulo:
+        build: ./accumulo
+        image: daunnc/geodocker-accumulo:latest
         depends_on:
-          - geodocker-hadoop-base
-    geodocker-hadoop-name:
-        build: ./hadoop/name
-        image: daunnc/geodocker-hadoop-name:latest
+          - geodocker-hadoop
+    geodocker-spark:
+        build: ./spark
+        image: daunnc/geodocker-spark:latest
         depends_on:
-          - geodocker-hadoop-base
-    geodocker-hadoop-sname:
-        build: ./hadoop/sname
-        image: daunnc/geodocker-hadoop-sname:latest
-        depends_on:
-          - geodocker-hadoop-base
-    geodocker-accumulo-base:
-        build: ./accumulo/base
-        image: daunnc/geodocker-accumulo-base:latest
-        depends_on:
-          - geodocker-hadoop-base
-    geodocker-accumulo-gc:
-        build: ./accumulo/gc
-        image: daunnc/geodocker-accumulo-gc:latest
-        depends_on:
-          - geodocker-accumulo-base
-    geodocker-accumulo-master:
-        build: ./accumulo/master
-        image: daunnc/geodocker-accumulo-master:latest
-        depends_on:
-          - geodocker-accumulo-base
-    geodocker-accumulo-monitor:
-        build: ./accumulo/monitor
-        image: daunnc/geodocker-accumulo-monitor:latest
-        depends_on:
-          - geodocker-accumulo-base
-    geodocker-accumulo-tracer:
-        build: ./accumulo/tracer
-        image: daunnc/geodocker-accumulo-tracer:latest
-        depends_on:
-          - geodocker-accumulo-base
-    geodocker-accumulo-tserver:
-        build: ./accumulo/tserver
-        image: daunnc/geodocker-accumulo-tserver:latest
-        depends_on:
-          - geodocker-accumulo-base
-    geodocker-spark-base:
-        build: ./spark/base
-        image: daunnc/geodocker-spark-base:latest
-        depends_on:
-          - geodocker-hadoop-base
-    geodocker-spark-master:
-        build: ./spark/master
-        image: daunnc/geodocker-spark-master:latest
-        depends_on:
-          - geodocker-spark-base
-    geodocker-spark-worker:
-        build: ./spark/worker
-        image: daunnc/geodocker-spark-worker:latest
-        depends_on:
-          - geodocker-spark-base
+          - geodocker-hadoop
     geodocker-geoserver:
         build: ./extras/geoserver
         image: daunnc/geodocker-geoserver:latest
         depends_on:
-          - geodocker-spark-base
+          - geodocker-spark

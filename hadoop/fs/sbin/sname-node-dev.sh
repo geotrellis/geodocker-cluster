@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-set -eo pipefail
 
 export PORT="50070"
 

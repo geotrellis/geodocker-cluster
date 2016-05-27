@@ -23,7 +23,7 @@ fi
 if [ -z "$2" ]; then
   env="prod"
 else
-  if [ $2 = "dev"]; then
+  if [ $2 = "dev" ]; then
     env="dev"
   else
     env="prod"
@@ -49,6 +49,7 @@ else
     role="other"
   fi
 fi
+echo "Running accumulo container in mode: $env with role: $role"
 
 # Run the appropriate startup script (or noop with ':')
 if [ $env = "prod" ]; then

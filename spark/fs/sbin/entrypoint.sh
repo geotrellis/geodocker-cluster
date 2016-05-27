@@ -19,6 +19,8 @@ else
   fi
 fi
 
+echo "Running spark container with role: $role"
+
 # Decide what to run
 if [ $role = "master" ]; then
   bash -c "spark-class org.apache.spark.deploy.master.Master --host $(hostname)"

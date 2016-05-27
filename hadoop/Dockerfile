@@ -14,5 +14,8 @@ RUN set -x && \
 
 COPY ./fs /
 
+VOLUME ["/data/hdfs"]
+
 WORKDIR "${HADOOP_HOME}"
 ENTRYPOINT [ "/sbin/entrypoint.sh" ]
+

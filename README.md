@@ -9,7 +9,7 @@ Docker containers with prepared environment to run [GeoTrellis](https://github.c
 * [Hadoop (HDFS + YARN) 2.7.1](https://hadoop.apache.org/)
 * [ZooKeeper 3.4.6](https://zookeeper.apache.org/)
 * [Accumulo 1.7.1](https://accumulo.apache.org/)
-* [Spark 1.5.2 (Scala 2.10 / Scala 2.11)](http://spark.apache.org/)
+* [Spark 1.6.1 (Scala 2.10)](http://spark.apache.org/)
 
 ## Repository short description (index of ReadMe docs)
 

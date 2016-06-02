@@ -6,7 +6,7 @@ RUN groupadd tomcat && \
   useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 
 # Install tomcat
-RUN wget -O /tmp/tomcat.tar.gz http://mirror.sdunix.com/apache/tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35.tar.gz
+RUN wget -O /tmp/tomcat.tar.gz https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.35/bin/apache-tomcat-8.0.35.tar.gz
 RUN tar -xvf /tmp/tomcat.tar.gz -C /opt/
 RUN rm -rf /tmp/tomcat.tar.gz
 

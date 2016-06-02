@@ -27,4 +27,4 @@ docker run \
   --detach \
   --restart=always \
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
-  daunnc/geodocker-hadoop-data:${TAG:-"latest"}
+  daunnc/geodocker-hadoop:${TAG:-"latest"} data

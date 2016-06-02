@@ -24,4 +24,4 @@ docker run \
   --env="SPARK_DAEMON_MEMORY=2g" \
   --env="SPARK_SUBMIT_DRIVER_MEMORY=1g" \
   --env="HADOOP_MASTER_ADDRESS=${HADOOP_MASTER_ADDRESS}" \
-  daunnc/geodocker-spark-master:${TAG:-"latest"}
+  daunnc/geodocker-spark:${TAG:-"latest"} master

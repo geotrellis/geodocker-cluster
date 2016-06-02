@@ -13,29 +13,12 @@ Docker containers with prepared environment to run [GeoTrellis](https://github.c
 
 ## Repository short description (index of ReadMe docs)
 
-Base images:
+Images:
 
-* [accumulo](./accumulo)
-  * Contains Accumulo 1.7.1 images: 
-    * [base](./accumulo/base)
-    * [gc](./accumulo/gc) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-gc/)
-    * [master](./accumulo/master) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-master/)
-    * [monitor](./accumulo/monitor) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-monitor/)
-    * [tracer](./accumulo/tracer) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-tracer/)
-    * [tserver](./accumulo/tserver) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo-tserver/)
-* [hadoop](./hadoop)
-  * Contains Hadoop 2.7.1 images:
-    * [base](./hadoop/base) 
-    * [data](./hadoop/data) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-data/)
-    * [name](./hadoop/name) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-name/)
-    * [sname](./hadoop/sname) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop-sname/)
-* [spark](./spark)
-  * Contains Spark 1.5.2 (Scala 2.10 by default) images:
-    * [base](./spark/base) 
-    * [master](./spark/master) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark-master/)
-    * [worker](./spark/worker) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark-worker/)
-* [zookeeper](./zookeeper)
-  * Contains Zookeeper 3.4.6 image [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-zookeeper/)
+* [accumulo 1.7.1](./accumulo) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo/)
+* [hadoop 2.7.1](./hadoop) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop/)
+* [spark 1.6.1](./spark) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark/)
+* [zookeeper 3.4.6](./zookeeper) [[dockerhub]](https://hub.docker.com/r/daunnc/geodockerzookeeper/)
 * [cassandra](https://hub.docker.com/_/cassandra/)
   * In run scripts used official cassandra image
 * [runners](./runners)

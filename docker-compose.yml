@@ -1,22 +1,16 @@
 version: '2'
-services:
-    geodocker-ubuntu-pbase:
+services:    
+    geodocker-pbase:
         build:
           context: ./base
-          dockerfile: ubuntu.dockerfile
-        image: geodocker-pbase:latest
-    geodocker-centos-pbase:
-        build:
-          context: ./base
+          # choose one of images (centos.dockerfile / ubuntu.dockerfile)
           dockerfile: centos.dockerfile
         image: geodocker-pbase:latest
     geodocker-zookeeper:
         build: ./zookeeper
         image: daunnc/geodocker-zookeeper:latest
-        depends_on:
-          # - geodocker-ubuntu-pbase
-          - geodocker-centos-pbase
-          # choose one of images (centos / ubuntu)
+        depends_on:         
+          - geodocker-pbase          
     geodocker-hadoop:
         build: ./hadoop
         image: daunnc/geodocker-hadoop:latest
@@ -33,6 +27,11 @@ services:
         depends_on:
           - geodocker-hadoop
     geodocker-geoserver:
+        build: ./extras/geoserver
+        image: daunnc/geodocker-geoserver:latest
+        depends_on:
+          - geodocker-spark
+ geodocker-geoserver:
         build: ./extras/geoserver
         image: daunnc/geodocker-geoserver:latest
         depends_on:

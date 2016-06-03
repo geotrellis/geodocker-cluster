@@ -18,7 +18,7 @@ Images:
 * [accumulo 1.7.1](./accumulo) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-accumulo/)
 * [hadoop 2.7.1](./hadoop) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-hadoop/)
 * [spark 1.6.1](./spark) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-spark/)
-* [zookeeper 3.4.6](./zookeeper) [[dockerhub]](https://hub.docker.com/r/daunnc/geodockerzookeeper/)
+* [zookeeper 3.4.6](./zookeeper) [[dockerhub]](https://hub.docker.com/r/daunnc/geodocker-zookeeper/)
 * [cassandra](https://hub.docker.com/_/cassandra/)
   * In run scripts used official cassandra image
 * [runners](./runners)

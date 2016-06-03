@@ -10,6 +10,7 @@ case $i in
     --publish=*)
     PUBLISH=true
     shift
+    ;;
     *)
     ;;
 esac

@@ -27,4 +27,6 @@ RUN wget -O /tmp/maven.tar.gz http://mirrors.gigenet.com/apache/maven/maven-3/3.
 RUN tar -xvf /tmp/maven.tar.gz -C /usr/local/
 RUN cd /usr/local && ln -s apache-maven-3.3.9 maven
 
-
+# NETCAT
+RUN wget http://vault.centos.org/6.6/os/x86_64/Packages/nc-1.84-22.el6.x86_64.rpm && \
+    rpm -iUv nc-1.84-22.el6.x86_64.rpm && rm nc-1.84-22.el6.x86_64.rpm

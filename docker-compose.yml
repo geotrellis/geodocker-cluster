@@ -1,10 +1,11 @@
 version: '2'
 services:
-    geodocker-ubuntu-pbase:
-        build:
-          context: ./base
-          dockerfile: ubuntu.dockerfile
-        image: geodocker-pbase:latest
+    # geodocker-ubuntu-pbase:
+    #     build:
+    #       context: ./base
+    #       dockerfile: ubuntu.dockerfile
+    #     image: geodocker-pbase:latest
+    # choose one of images (centos / ubuntu)
     geodocker-centos-pbase:
         build:
           context: ./base

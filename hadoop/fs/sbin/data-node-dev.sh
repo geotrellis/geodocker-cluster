@@ -14,4 +14,4 @@ done
 echo "Ok."
 
 touch hdfsready
-hadoop fs -copyFromLocal hdfsready /
+hadoop fs -copyFromLocal -f hdfsready /

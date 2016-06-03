@@ -39,17 +39,17 @@ if [ $env = "prod" ]; then
   if [ $role = "data" ]; then
     :
   elif [ $role = "name" ]; then
-    . name-node.sh
+    name-node.sh
   elif [ $role = "sname" ]; then
     :
   fi
 elif [ $env = "dev" ]; then
   if [ $role = "data" ]; then
-    . data-node-dev.sh
+    data-node-dev.sh
   elif [ $role = "name" ]; then
-    . name-node.sh
+    name-node.sh
   elif [ $role = "sname" ]; then
-    . sname-node-dev.sh
+    sname-node-dev.sh
   fi
 fi
 

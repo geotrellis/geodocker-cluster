@@ -1,4 +1,4 @@
-FROM daunnc/geodocker-hadoop-base:latest
+FROM daunnc/geodocker-hadoop:latest
 
 MAINTAINER Pomadchin Grigory, daunnc@gmail.com
 

@@ -28,7 +28,6 @@ if ${PUBLISH}; then
   docker push daunnc/geodocker-zookeeper:${TAG}
   docker push daunnc/geodocker-hadoop:${TAG}
   docker push daunnc/geodocker-accumulo:${TAG}
-  docker push daunnc/geodocker-spark-master:${TAG}
   docker push daunnc/geodocker-spark:${TAG}
 fi
   

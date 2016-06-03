@@ -41,5 +41,3 @@ echo "Ok."
 if ! $(hadoop fs -test -d /accumulo); then
   hadoop fs -mkdir -p /accumulo-classpath && accumulo init --instance-name ${INSTANCE_NAME} --password ${ACCUMULO_PASSWORD}
 fi
-
-exec "$@"

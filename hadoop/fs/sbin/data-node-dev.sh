@@ -15,5 +15,3 @@ echo "Ok."
 
 touch hdfsready
 hadoop fs -copyFromLocal hdfsready /
-
-exec "$@"

@@ -10,5 +10,3 @@ do
 done
 
 echo "Ok."
-
-exec "$@"

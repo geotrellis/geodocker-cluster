@@ -6,5 +6,3 @@ if  [[ ! -f /data/hdfs/name/current/VERSION ]]; then
   hdfs namenode -format
   echo
 fi
-
-exec "$@"

@@ -121,4 +121,4 @@ services:
         image: daunnc/geodocker-geoserver:latest
         hostname: geodocker-geoserver
         depends_on:
-          - geodocker-accumulo-master
+          - geodocker-accumulo-tserver

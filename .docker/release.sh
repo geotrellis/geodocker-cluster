@@ -7,7 +7,7 @@ case $i in
     TAG="${i#*=}"
     shift
     ;;    
-    --publish=*)
+    --publish*)
     PUBLISH=true
     shift
     ;;

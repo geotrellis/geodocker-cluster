@@ -31,8 +31,3 @@ services:
         image: daunnc/geodocker-geoserver:latest
         depends_on:
           - geodocker-spark
- geodocker-geoserver:
-        build: ./extras/geoserver
-        image: daunnc/geodocker-geoserver:latest
-        depends_on:
-          - geodocker-spark

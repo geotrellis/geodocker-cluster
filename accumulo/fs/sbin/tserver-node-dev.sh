@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-
 set -eo pipefail
 
 if [[ ! -v ${HADOOP_MASTER_ADDRESS} ]]; then
@@ -28,5 +27,3 @@ do
 done
 
 echo "Ok."
-
-exec "$@"

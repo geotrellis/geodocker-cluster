@@ -1,4 +1,5 @@
 #! /usr/bin/env bash
+set -eo pipefail
 
 export PORT="50070"
 
@@ -13,5 +14,4 @@ done
 echo "Ok."
 
 touch hdfsready
-hadoop fs -copyFromLocal hdfsready /
-
+hadoop fs -copyFromLocal -f hdfsready /

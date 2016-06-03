@@ -1,5 +1,4 @@
 #! /usr/bin/env bash
-
 set -eo pipefail
 
 if ${WITH_GEO_ITERATORS}; then

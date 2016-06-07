@@ -34,7 +34,7 @@ services:
         depends_on:
           - geodocker-hadoop-name
     geodocker-accumulo-master:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-geowave:latest
         command: master dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -45,7 +45,7 @@ services:
         depends_on:
           - geodocker-hadoop-data
     geodocker-accumulo-gc:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-geowave:latest
         command: gc dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -55,7 +55,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-monitor:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-geowave:latest
         command: monitor dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -67,7 +67,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tracer:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-geowave:latest
         command: tracer dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -77,7 +77,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tserver:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-geowave:latest
         command: tserver dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -89,36 +89,36 @@ services:
           - geodocker-accumulo-gc
           - geodocker-accumulo-monitor
           - geodocker-accumulo-tracer
-    geodocker-spark-master:
-        image: daunnc/geodocker-spark:latest
-        command: master dev
-        hostname: geodocker-spark-master
-        environment:
-          SPARK_DAEMON_MEMORY: 2g
-          SPARK_SUBMIT_DRIVER_MEMORY: 1g
-          HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
-          MASTER: spark://geodocker-spark-master:7077
-        ports:
-          - 8080:8080
-        # volumes:
-        #  - '/data/gt/spark:/data/spark'
-        depends_on:
-          - geodocker-hadoop-data
-    geodocker-spark-worker:
-        image: daunnc/geodocker-spark:latest
-        command: worker dev
-        hostname: geodocker-spark-worker
-        environment:
-          SPARK_DAEMON_MEMORY: 2g
-          SPARK_SUBMIT_DRIVER_MEMORY: 1g
-          SPARK_WORKER_CORES: 8
-          SPARK_WORKER_MEMORY: 16g
-          HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
-          SPARK_MASTER: geodocker-spark-master
-        depends_on:
-          - geodocker-spark-master
-    geodocker-geoserver:
-        image: daunnc/geodocker-geoserver:latest
-        hostname: geodocker-geoserver
-        depends_on:
-          - geodocker-accumulo-tserver
+    #geodocker-spark-master:
+    #    image: daunnc/geodocker-spark:latest
+    #    command: master dev
+    #    hostname: geodocker-spark-master
+    #    environment:
+    #      SPARK_DAEMON_MEMORY: 2g
+    #      SPARK_SUBMIT_DRIVER_MEMORY: 1g
+    #      HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
+    #      MASTER: spark://geodocker-spark-master:7077
+    #    ports:
+    #      - 8080:8080
+    #    # volumes:
+    #    #  - '/data/gt/spark:/data/spark'
+    #    depends_on:
+    #      - geodocker-hadoop-data
+    #geodocker-spark-worker:
+    #    image: daunnc/geodocker-spark:latest
+    #    command: worker dev
+    #    hostname: geodocker-spark-worker
+    #    environment:
+    #      SPARK_DAEMON_MEMORY: 2g
+    #      SPARK_SUBMIT_DRIVER_MEMORY: 1g
+    #      SPARK_WORKER_CORES: 8
+    #      SPARK_WORKER_MEMORY: 16g
+    #      HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
+    #      SPARK_MASTER: geodocker-spark-master
+    #    depends_on:
+    #      - geodocker-spark-master
+    #geodocker-geoserver:
+    #    image: daunnc/geodocker-geoserver:latest
+    #    hostname: geodocker-geoserver
+    #    depends_on:
+    #      - geodocker-accumulo-tserver

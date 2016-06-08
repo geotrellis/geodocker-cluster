@@ -21,38 +21,13 @@ services:
         image: daunnc/geodocker-accumulo:latest
         depends_on:
           - geodocker-hadoop
-    geodocker-accumulo-geowave:
-        build:
-          context: ./accumulo
-          args:
-            WITH_GEOWAVE: "true"
-        image: daunnc/geodocker-accumulo:latest
-        depends_on:
-          - geodocker-accumulo
-    geodocker-accumulo-geomesa:
-        build:
-          context: ./accumulo
-          args:
-            WITH_GEOMESA: "true"
-        image: daunnc/geodocker-accumulo:latest
-        depends_on:
-          - geodocker-accumulo
-    geodocker-accumulo-wavemesa-combined:
-        build:
-          context: ./accumulo
-          args:
-            WITH_GEOMESA: "true"
-            WITH_GEOWAVE: "true"
-        image: daunnc/geodocker-accumulo:latest
-        depends_on:
-          - geodocker-accumulo
     geodocker-spark:
         build: ./spark
         image: daunnc/geodocker-spark:latest
         depends_on:
           - geodocker-hadoop
-    #geodocker-geoserver:
-    #    build: ./extras/geoserver
-    #    image: daunnc/geodocker-geoserver:latest
-    #    depends_on:
-    #      - geodocker-spark
+    geodocker-geoserver:
+        build: ./extras/geoserver
+        image: daunnc/geodocker-geoserver:latest
+        depends_on:
+          - geodocker-spark

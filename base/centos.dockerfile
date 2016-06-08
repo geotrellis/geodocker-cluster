@@ -6,7 +6,7 @@ ENV USER root
 ENV HOME /root
 
 # JAVA
-ENV JAVA_HOME /usr/java/jdk1.8.0_45/jre/
+ENV JAVA_HOME /usr/java/jdk1.8.0_45/
 ENV PATH $PATH:$JAVA_HOMEbin
 
 RUN yum update -y && \

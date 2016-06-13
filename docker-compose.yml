@@ -1,5 +1,5 @@
 version: '2'
-services:    
+services:
     geodocker-pbase:
         build:
           context: ./base
@@ -9,8 +9,8 @@ services:
     geodocker-zookeeper:
         build: ./zookeeper
         image: daunnc/geodocker-zookeeper:latest
-        depends_on:         
-          - geodocker-pbase          
+        depends_on:
+          - geodocker-pbase
     geodocker-hadoop:
         build: ./hadoop
         image: daunnc/geodocker-hadoop:latest
@@ -21,6 +21,11 @@ services:
         image: daunnc/geodocker-accumulo:latest
         depends_on:
           - geodocker-hadoop
+    geodocker-accumulo-gis:
+        build: ./extras/accumulo-gis
+        image: daunnc/geodocker-accumulo-gis:latest
+        depends_on:
+          - geodocker-accumulo
     geodocker-spark:
         build: ./spark
         image: daunnc/geodocker-spark:latest

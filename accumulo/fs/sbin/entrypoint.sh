@@ -66,15 +66,15 @@ if [ $env = "prod" ]; then
   fi
 elif [ $env = "dev" ]; then
   if [ $role = "master" ]; then
-    master-node-dev.sh
+    source master-node-dev.sh
   elif [ $role = "monitor" ]; then
-    monitor-node-dev.sh
+    source await-master-dev.sh
   elif [ $role = "gc" ]; then
-    gc-node-dev.sh
+    source await-master-dev.sh
   elif [ $role = "tracer" ]; then
-    tracer-node-dev.sh
+    source await-master-dev.sh
   elif [ $role = "tserver" ]; then
-    tserver-node-dev.sh
+    source await-master-dev.sh
   fi
 fi
 

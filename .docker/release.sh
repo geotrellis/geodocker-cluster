@@ -22,9 +22,9 @@ PUBLISH=${PUBLISH:-false}
 docker tag daunnc/geodocker-zookeeper:latest daunnc/geodocker-zookeeper:${TAG}
 docker tag daunnc/geodocker-hadoop:latest daunnc/geodocker-hadoop:${TAG}
 docker tag daunnc/geodocker-accumulo:latest daunnc/geodocker-accumulo:${TAG}
-docker tag daunnc/geodocker-accumulo:latest daunnc/geodocker-accumulo-gis:${TAG}
+docker tag daunnc/geodocker-accumulo-gis:latest daunnc/geodocker-accumulo-gis:${TAG}
 docker tag daunnc/geodocker-spark:latest daunnc/geodocker-spark:${TAG}
-docker tag daunnc/geodocker-spark:latest daunnc/geodocker-geoserver:${TAG}
+docker tag daunnc/geodocker-geoserver:latest daunnc/geodocker-geoserver:${TAG}
 
 if ${PUBLISH}; then
   docker push daunnc/geodocker-zookeeper:${TAG}

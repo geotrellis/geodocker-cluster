@@ -34,7 +34,7 @@ services:
         depends_on:
           - geodocker-hadoop-name
     geodocker-accumulo-master:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-gis:latest
         command: master dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -47,7 +47,7 @@ services:
         #volumes:
         #  - './accumulo/fs/sbin:/sbin:rw'
     geodocker-accumulo-gc:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-gis:latest
         command: gc dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -57,7 +57,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-monitor:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-gis:latest
         command: monitor dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -69,7 +69,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tracer:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-gis:latest
         command: tracer dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name
@@ -79,7 +79,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tserver:
-        image: daunnc/geodocker-accumulo:latest
+        image: daunnc/geodocker-accumulo-gis:latest
         command: tserver dev
         environment:
           HADOOP_MASTER_ADDRESS: geodocker-hadoop-name

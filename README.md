@@ -2,7 +2,7 @@
 
 Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave).
 
-*Current version (latest)*: **0.2.0**
+*Current version (latest)*: **0.2.1**
 
 ## Environment
 

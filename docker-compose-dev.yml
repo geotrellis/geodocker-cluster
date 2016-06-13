@@ -34,6 +34,7 @@ services:
         depends_on:
           - geodocker-hadoop-name
     geodocker-accumulo-master:
+        # choose one of images (geodocker-accumulo-gis / geodocker-accumulo)
         image: daunnc/geodocker-accumulo-gis:latest
         command: master dev
         environment:
@@ -47,6 +48,7 @@ services:
         #volumes:
         #  - './accumulo/fs/sbin:/sbin:rw'
     geodocker-accumulo-gc:
+        # choose one of images (geodocker-accumulo-gis / geodocker-accumulo)
         image: daunnc/geodocker-accumulo-gis:latest
         command: gc dev
         environment:
@@ -57,6 +59,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-monitor:
+      # choose one of images (geodocker-accumulo-gis / geodocker-accumulo)
         image: daunnc/geodocker-accumulo-gis:latest
         command: monitor dev
         environment:
@@ -69,6 +72,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tracer:
+        # choose one of images (geodocker-accumulo-gis / geodocker-accumulo)
         image: daunnc/geodocker-accumulo-gis:latest
         command: tracer dev
         environment:
@@ -79,6 +83,7 @@ services:
         depends_on:
           - geodocker-accumulo-master
     geodocker-accumulo-tserver:
+        # choose one of images (geodocker-accumulo-gis / geodocker-accumulo)
         image: daunnc/geodocker-accumulo-gis:latest
         command: tserver dev
         environment:

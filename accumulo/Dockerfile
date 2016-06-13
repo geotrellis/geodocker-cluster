@@ -16,7 +16,6 @@ WORKDIR "${ACCUMULO_HOME}"
 
 # Build native bindings for accumulo performance
 RUN yum install -y make gcc-c++
-
 RUN bash -c "bin/build_native_library.sh"
 
 COPY ./fs /

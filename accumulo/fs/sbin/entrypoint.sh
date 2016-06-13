@@ -5,7 +5,6 @@ set -eo pipefail
 if [[ ! -v ${HADOOP_MASTER_ADDRESS} ]]; then
   sed -i.bak "s/{HADOOP_MASTER_ADDRESS}/${HADOOP_MASTER_ADDRESS}/g" ${HADOOP_CONF_DIR}/core-site.xml
   sed -i.bak "s/{HADOOP_MASTER_ADDRESS}/${HADOOP_MASTER_ADDRESS}/g" ${ACCUMULO_CONF_DIR}/accumulo-site.xml
-  sed -i.bak "s/{HADOOP_MASTER_ADDRESS}/${HADOOP_MASTER_ADDRESS}/g" /sbin/load-iterators.sh
 fi
 
 if [[ ! -v ${ACCUMULO_ZOOKEEPERS} ]]; then

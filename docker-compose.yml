@@ -21,6 +21,11 @@ services:
         image: daunnc/geodocker-accumulo:latest
         depends_on:
           - geodocker-hadoop
+    geodocker-accumulo-gis:
+        build: ./extras/accumulo-gis
+        image: daunnc/geodocker-accumulo-gis:latest
+        depends_on:
+          - geodocker-accumulo
     geodocker-spark:
         build: ./spark
         image: daunnc/geodocker-spark:latest

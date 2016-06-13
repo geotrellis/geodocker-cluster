@@ -12,16 +12,5 @@ done
 
 echo "Ok."
 
-echo -n "Checking for HDFS safemode..."
-SAFEMODE=$(hdfs dfsadmin -safemode get)
-while [ "${SAFEMODE}" = "Safe mode is ON" ]
-do
-  SAFEMODE=$(hdfs dfsadmin -safemode get)
-  echo -n .
-  sleep 1
-done
-
-echo "Ok."
-
 touch hdfsready
 hadoop fs -copyFromLocal -f hdfsready /

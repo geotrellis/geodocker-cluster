@@ -45,7 +45,7 @@ The upshot of this is that you can't start two containers on the same mesos node
 and there is no in-built port forwarding (on some internal docker network).
 Because of this, it is not possible to start our own dockerized Spark using Marathon.
 As a fast and simple solution for deployment, it is possible to start DC/OS built-in Hadoop and Spark packages,
-and to start Accumulo using this Marathon job specification.
+and to start Accumulo using [this](https://gist.github.com/pomadchin/2193ed3a10808e9368d326a0cebe393f) Marathon job specification.
 To solve Marathon DNS restrictions (as a consequence of port auto forwarding),
 it is possible to use [Calico](https://www.projectcalico.org/) (though not in the current DC/OS AWS template due to old docker version),
 and [Weave](https://www.weave.works/) (still has no [Weave.Net](https://www.weave.works/products/weave-net/) package for DC/OS).

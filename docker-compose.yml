@@ -8,31 +8,31 @@ services:
         image: geodocker-pbase:latest
     geodocker-zookeeper:
         build: ./zookeeper
-        image: daunnc/geodocker-zookeeper:latest
+        image: geotrellis/geodocker-zookeeper:latest
         depends_on:
           - geodocker-pbase
     geodocker-hadoop:
         build: ./hadoop
-        image: daunnc/geodocker-hadoop:latest
+        image: geotrellis/geodocker-hadoop:latest
         depends_on:
           - geodocker-zookeeper
     geodocker-accumulo:
         build: ./accumulo
-        image: daunnc/geodocker-accumulo:latest
+        image: geotrellis/geodocker-accumulo:latest
         depends_on:
           - geodocker-hadoop
     geodocker-accumulo-gis:
         build: ./extras/accumulo-gis
-        image: daunnc/geodocker-accumulo-gis:latest
+        image: geotrellis/geodocker-accumulo-gis:latest
         depends_on:
           - geodocker-accumulo
     geodocker-spark:
         build: ./spark
-        image: daunnc/geodocker-spark:latest
+        image: geotrellis/geodocker-spark:latest
         depends_on:
           - geodocker-hadoop
     geodocker-geoserver:
         build: ./extras/geoserver
-        image: daunnc/geodocker-geoserver:latest
+        image: geotrellis/geodocker-geoserver:latest
         depends_on:
           - geodocker-spark

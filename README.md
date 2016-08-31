@@ -1,8 +1,10 @@
-# GeoDocker Cluster
+# **[NOT MAINTAINED]** GeoDocker Cluster
 
-Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave).
+**Not maintained** repository, project was moved into a separate [GeoDocker](https://github.com/geodocker/) organization account, and splited into separate github repositories, you can find more information in the [main GeoDocker repository](https://github.com/geodocker/geodocker/). However these containers still would be available on [Docker Hub](https://hub.docker.com/r/daunnc/). Consider updating your environment up to actuall GeoDocker version. Any questions can be [asked](https://github.com/geodocker/geodocker/issues) in the new official geodocker repository issues, or our GeoTrellis [gitter channel](https://gitter.im/geotrellis/geotrellis/) where we can try to answer your questions in a real time.
 
-*Current version (latest)*: **0.2.1**
+**[NOT MAINTAINED]** Docker containers with prepared environment to run [GeoTrellis](https://github.com/geotrellis/geotrellis), [GeoMesa](https://github.com/locationtech/geomesa), and [GeoWave](https://github.com/ngageoint/geowave).
+
+**[NOT MAINTAINED]** *Current version (latest)*: **0.2.1**
 
 ## Environment
 

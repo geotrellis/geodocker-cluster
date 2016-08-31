@@ -6,6 +6,10 @@
 
 **[NOT MAINTAINED]** *Current version (latest)*: **0.2.1**
 
+## Migration guide
+
+There is no real differences in container usages, same volumes to mount, similar `docker-compose` usage. In fact the real user difference would be only in images names, in passed cli arguments and env variables. All [prod deployment](https://github.com/geotrellis/geodocker-cluster#run-a-multinode-cluster) steps would be the same, but [runners](./runners) direcotry is deprecated and not maintained as well as it's an obfuscation of `docker` cli usage, follow [GeoDocker](https://github.com/geodocker/geodocker/) repo instructions and updates.
+
 ## Environment
 
 * [Hadoop (HDFS + YARN) 2.7.1](https://hadoop.apache.org/)
